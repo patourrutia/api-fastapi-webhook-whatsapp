@@ -2,6 +2,7 @@ from typing import Union
 from fastapi import FastAPI, Request
 
 
+
 import os
 from whatsapp_client import WhatsAppWrapper
 import pymysql.cursors
