@@ -94,7 +94,7 @@ def msgayuda():
     msg ="✨*Funciones*✨\n"
     msg = msg + "———————————\n"
     msg = msg + "☑️Traducir a Español\n"
-    msg = msg + "       Ej: How are you🇪🇸\n"
+    msg = msg + "      Ej: How are you🇪🇸\n"
     msg = msg + "☑️Traducir a Ingles\n"
     msg = msg + "      Ej:Buen trabajo🇺🇸\n"
     msg = msg + "☑️Ir a un nivel\n"  
