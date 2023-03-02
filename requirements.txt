@@ -1,3 +1,10 @@
 fastapi
 uvicorn
 gunicorn
+python-dotenv==0.21.1
+requests==2.28.2
+wheel
+PyMySQL==1.0.2
+google-cloud
+google-cloud-translate
+openai
