@@ -325,7 +325,7 @@ class WhatsAppWrapper:
                 with connection.cursor() as cursor:
                     sql = "SELECT id,level,modo, status,date_expired,pais,maxlevel FROM user WHERE number_phone=%s AND active = 1"
                     cursor.execute(sql,(phone_number))
-                    result_user= cursor.fetchone()
+                    result_user=  await cursor.fetchone()
                     client = WhatsAppWrapper()
 
                     if(cursor.rowcount==1):
