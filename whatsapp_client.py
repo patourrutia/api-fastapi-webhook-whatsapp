@@ -90,6 +90,9 @@ def envia_ultima_sentencia(curs,lev,number):
         phone_number=number,
         trans =traslate_sentence
     )
+
+
+    
 def msgayuda():
     msg ="✨*Funciones*✨\n"
     msg = msg + "———————————\n"
