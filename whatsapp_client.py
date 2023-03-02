@@ -230,13 +230,13 @@ class WhatsAppWrapper:
         assert response.status_code == 200, "Error sending message"
 
         return response.status_code
-    def send_message_video(self,  phone_number):
+    def send_message_video(self,  phone_number,body):
         payload = json.dumps({
         "messaging_product": "whatsapp",
         "to": phone_number,
         "text": {
             "preview_url": True,
-            "body": "✨Visita el siguiente link para ver el funcionamiento  👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
+            "body": body
             }
         })
         response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
@@ -290,7 +290,7 @@ class WhatsAppWrapper:
 
     
     
-    def process_webhook_notification(self, data):
+    async def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         #print(changes)
@@ -843,7 +843,8 @@ class WhatsAppWrapper:
                             )
     
                             response = client.send_message_video(  
-                                phone_number=phone_number
+                                phone_number=phone_number,
+                                body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
                             )
                             response = client.send_message(        
