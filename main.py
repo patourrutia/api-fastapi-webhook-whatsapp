@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 
 
 
@@ -24,7 +24,8 @@ async def read_root():
 @app.get("/webhook/")
 async def verify(request: Request):
     if request.query_params['hub.verify_token'] == HOOK_TOKEN:
-         return request.query_params['hub.challenge']
+        return Response(content=request.query_params["hub.challenge"])
+        #return request.query_params['hub.challenge']
     return "Authentication failed. Invalid Token."
 
 @app.post("/webhook/")
