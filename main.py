@@ -17,6 +17,7 @@ app = FastAPI()
 
 @app.get("/")
 async def read_root():
+    print("hola")
     return {"Hello": "World"}
 
 
