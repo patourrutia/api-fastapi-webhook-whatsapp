@@ -292,7 +292,6 @@ class WhatsAppWrapper:
     
     def process_webhook_notification(self, data):
         response = []
-        print(data)
         changes = data['entry'][0]['changes'][0]['value']
         #print(changes)
         messages = changes.get("messages")
