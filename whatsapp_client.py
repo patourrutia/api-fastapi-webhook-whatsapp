@@ -290,7 +290,7 @@ class WhatsAppWrapper:
 
     
     
-    async def process_webhook_notification(self, data):
+    def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         #print(changes)
@@ -325,7 +325,7 @@ class WhatsAppWrapper:
                 with connection.cursor() as cursor:
                     sql = "SELECT id,level,modo, status,date_expired,pais,maxlevel FROM user WHERE number_phone=%s AND active = 1"
                     cursor.execute(sql,(phone_number))
-                    result_user=  await cursor.fetchone()
+                    result_user= cursor.fetchone()
                     client = WhatsAppWrapper()
 
                     if(cursor.rowcount==1):
