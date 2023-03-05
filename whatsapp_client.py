@@ -124,7 +124,7 @@ def almacena_respuestas(msg,type,idus,cur,con):
 def almacena_envio_msg(msg,status,idus,cur,con):
     id_user = idus
 
-    sql = "SELECT id FROM message_last_to_client WHERE id_user%s "
+    sql = "SELECT id FROM message_last_to_client WHERE id_user=%s "
     cur.execute(sql,(id_user))
     result_user= cur.fetchone()
     if(cur.rowcount==0):
