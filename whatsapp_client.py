@@ -847,7 +847,7 @@ class WhatsAppWrapper:
                                     message=msg,
                                     phone_number=phone_admin
                                 )
-                            almacena_envio_msg(respuesta_cliente_normal,"",id_user,cursor,connection)
+                            almacena_envio_msg(msg,"",id_user,cursor,connection)
                         
                             response = client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
@@ -893,11 +893,15 @@ class WhatsAppWrapper:
 
                 connection.close()
         else:
-            print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
-            print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
-            pass
             #print("NO SON MENSAJES DE CLIENTE...")
        
+
+            if (data['entry'][0]['changes'][0]['value']['statuses'][0]['status']=="failed"):
+                print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
+                print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
+
+         
+          
         return response
     
     
