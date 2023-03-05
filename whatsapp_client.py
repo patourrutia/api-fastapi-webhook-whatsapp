@@ -293,7 +293,7 @@ class WhatsAppWrapper:
     def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
-        print(changes)
+        
         #print(changes)
         messages = changes.get("messages")
         if messages:
@@ -880,6 +880,7 @@ class WhatsAppWrapper:
 
                 connection.close()
         else:
+            print(changes)
             pass
             #print("NO SON MENSAJES DE CLIENTE...")
        

@@ -1,0 +1,45 @@
+{
+
+    "messaging_product":"whatsapp",
+ 
+    "metadata":{
+ 
+       "display_phone_number":"56990349669",
+ 
+       "phone_number_id":"111603721836632"
+ 
+    },
+ 
+    "statuses":[
+ 
+       {
+ 
+          "id":"wamid.HBgLNTY5MjYyNDkwNzEVAgARGBI4MzA2NzA5NEE4RTBBQTMwREMA",
+ 
+          "status":"failed",
+ 
+          "timestamp":"1678021634",
+ 
+          "recipient_id":"56926249071",
+ 
+          "errors":[
+ 
+             {
+ 
+                "code":131047,
+ 
+                "title":"Message failed to send because more than 24 hours have passed since the customer last replied to this number.",
+ 
+                "href":"https: //developers.facebook.com/docs/whatsapp/cloud-api/support/error-codes/"
+ 
+             }
+ 
+          ]
+ 
+       }
+ 
+    ]
+ 
+ }
+ 
+ 
