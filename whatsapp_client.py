@@ -293,6 +293,7 @@ class WhatsAppWrapper:
     def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
+        print(changes)
         #print(changes)
         messages = changes.get("messages")
         if messages:
@@ -304,6 +305,7 @@ class WhatsAppWrapper:
             if (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="text"):
                 #print (data_json['entry'][0]['changes'][0]['value']['messages'][0]['type'])
                 respuesta_cliente =data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
+
                 respuesta_cliente_normal =respuesta_cliente
                 text = respuesta_cliente
                 #print(respuesta_cliente_normal)
