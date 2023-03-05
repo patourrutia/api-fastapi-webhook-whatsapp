@@ -122,17 +122,23 @@ def almacena_respuestas(msg,type,idus,cur,con):
     con.commit()
 
 def almacena_envio_msg(msg,status,idus,cur,con):
-    msg = msg
-    status = status
     id_user = idus
-    date_actual = datetime.datetime.now()
-    mydate_time = date_actual.strftime("%Y-%m-%d %H:%M:00")
-    mydate = date_actual.strftime("%Y-%m-%d")
-    mytime = date_actual.strftime("%H:%M:%S")
-    sql = "INSERT INTO `message_last_to_client` (`id`, `message`, `status`, `id_user`, `fecha_time`, `fecha`, `time`) VALUES (NULL, '{var1}','{var2}', {var3}, '{var4}', '{var5}', '{var6}');".format(var1=str(msg),var2=status,var3=id_user,var4=str(mydate_time),var5=str(mydate),var6=str(mytime))
-    cur.execute(sql)
-    con.commit()
-    
+
+    sql = "SELECT id FROM message_last_to_client WHERE id_user%s "
+    cur.execute(sql,(id_user))
+    result_user= cur.fetchone()
+    if(cur.rowcount==0):
+        msg = msg
+        status = status
+
+        date_actual = datetime.datetime.now()
+        mydate_time = date_actual.strftime("%Y-%m-%d %H:%M:00")
+        mydate = date_actual.strftime("%Y-%m-%d")
+        mytime = date_actual.strftime("%H:%M:%S")
+        sql = "INSERT INTO `message_last_to_client` (`id`, `message`, `status`, `id_user`, `fecha_time`, `fecha`, `time`) VALUES (NULL, '{var1}','{var2}', {var3}, '{var4}', '{var5}', '{var6}');".format(var1=str(msg),var2=status,var3=id_user,var4=str(mydate_time),var5=str(mydate),var6=str(mytime))
+        cur.execute(sql)
+        con.commit()
+        
 
 
 
