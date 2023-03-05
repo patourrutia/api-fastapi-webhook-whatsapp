@@ -880,7 +880,8 @@ class WhatsAppWrapper:
 
                 connection.close()
         else:
-            print(changes)
+            print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
+            print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
             pass
             #print("NO SON MENSAJES DE CLIENTE...")
        
