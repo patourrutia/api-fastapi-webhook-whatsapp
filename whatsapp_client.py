@@ -130,7 +130,6 @@ def almacena_envio_msg(msg,status,idus,cur,con):
     mydate = date_actual.strftime("%Y-%m-%d")
     mytime = date_actual.strftime("%H:%M:%S")
     sql = "INSERT INTO `message_last_to_client` (`id`, `message`, `status`, `id_user`, `fecha_time`, `fecha`, `time`) VALUES (NULL, '{var1}','{var2}', {var3}, '{var4}', '{var5}', '{var6}');".format(var1=str(msg),var2=status,var3=id_user,var4=str(mydate_time),var5=str(mydate),var6=str(mytime))
-    print(sql)
     cur.execute(sql)
     con.commit()
     
