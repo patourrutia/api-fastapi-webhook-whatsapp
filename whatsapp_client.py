@@ -903,23 +903,26 @@ class WhatsAppWrapper:
             # print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
 
             if (data['entry'][0]['changes'][0]['value']['statuses'][0]['status']=="failed"):
+                print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
+                print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
                 phone_number = data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']
-                sql = "SELECT id FROM user WHERE number_phone=%s"
-                cursor.execute(sql,(phone_number))
-                result_user= cursor.fetchone()
-                client = WhatsAppWrapper() 
-                client.send_template_message(self, "pregunta_envio_mensajes", phone_number)
+                with connection.cursor() as cursor:
+                    sql = "SELECT id FROM user WHERE number_phone=%s"
+                    cursor.execute(sql,(phone_number))
+                    result_user= cursor.fetchone()
+                    client = WhatsAppWrapper() 
+                    client.send_template_message(self, "pregunta_envio_mensajes", phone_number)
 
-                # if(cursor.rowcount==1):
-                #     id_user = result_user["id"]
-                #     sql = "SELECT message FROM message_last_to_client WHERE id_user=%s "
-                #     cursor.execute(sql,(id_user))
-                #     result_last_message= cursor.fetchone()
-                #     if(cursor.rowcount==1):
-                #         msg = result_last_message["message"]
-                #         pass
-                
-
+                    # if(cursor.rowcount==1):
+                    #     id_user = result_user["id"]
+                    #     sql = "SELECT message FROM message_last_to_client WHERE id_user=%s "
+                    #     cursor.execute(sql,(id_user))
+                    #     result_last_message= cursor.fetchone()
+                    #     if(cursor.rowcount==1):
+                    #         msg = result_last_message["message"]
+                    #         pass
+                    
+                    connection.close()
          
           
         return response
