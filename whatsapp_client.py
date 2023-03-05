@@ -912,7 +912,7 @@ class WhatsAppWrapper:
                     cursor.execute(sql,(phone_number))
                     result_user= cursor.fetchone()
                     client = WhatsAppWrapper() 
-                    client.send_template_message(self, "pregunta_envio_mensajes", phone_number)
+                    client.send_template_message("pregunta_envio_mensajes", phone_number)
 
                     # if(cursor.rowcount==1):
                     #     id_user = result_user["id"]
