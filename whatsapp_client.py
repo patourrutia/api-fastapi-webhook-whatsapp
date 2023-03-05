@@ -311,6 +311,11 @@ class WhatsAppWrapper:
     def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
+        connection = pymysql.connect(host='10.10.1.216',
+        user='root',
+        password='123456',
+        database='grammar_bot',
+        cursorclass=pymysql.cursors.DictCursor)
         
         print(changes)
         messages = changes.get("messages")
@@ -337,11 +342,7 @@ class WhatsAppWrapper:
                 #    print("Cliente responde :" + respuesta_cliente + " RESPUESTA VALIDA")
                 #else:
                 #    print("Cliente responde :" + respuesta_cliente + " RESPUESTA NO VALIDA")   
-                connection = pymysql.connect(host='10.10.1.216',
-                user='root',
-                password='123456',
-                database='grammar_bot',
-                cursorclass=pymysql.cursors.DictCursor)
+      
                 with connection.cursor() as cursor:
                     sql = "SELECT id,level,modo, status,date_expired,pais,maxlevel FROM user WHERE number_phone=%s AND active = 1"
                     cursor.execute(sql,(phone_number))
