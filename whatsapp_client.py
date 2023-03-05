@@ -161,7 +161,7 @@ class WhatsAppWrapper:
   
 
 
-    def send_template_message(self, template_name, language_code, phone_number):
+    def send_template_message(self, template_name, phone_number):
 
         payload = json.dumps({
             "messaging_product": "whatsapp",
@@ -170,7 +170,7 @@ class WhatsAppWrapper:
             "template": {
                 "name": template_name,
                 "language": {
-                    "code": language_code
+                    "code": "es"
                 }
             }
         })
@@ -312,7 +312,7 @@ class WhatsAppWrapper:
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         
-        #print(changes)
+        print(changes)
         messages = changes.get("messages")
         if messages:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
@@ -899,11 +899,26 @@ class WhatsAppWrapper:
                 connection.close()
         else:
             #print("NO SON MENSAJES DE CLIENTE...")
-       
+            # print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
+            # print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
 
             if (data['entry'][0]['changes'][0]['value']['statuses'][0]['status']=="failed"):
-                print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
-                print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
+                phone_number = data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']
+                sql = "SELECT id FROM user WHERE number_phone=%s"
+                cursor.execute(sql,(phone_number))
+                result_user= cursor.fetchone()
+                client = WhatsAppWrapper() 
+                client.send_template_message(self, "pregunta_envio_mensajes", phone_number)
+
+                # if(cursor.rowcount==1):
+                #     id_user = result_user["id"]
+                #     sql = "SELECT message FROM message_last_to_client WHERE id_user=%s "
+                #     cursor.execute(sql,(id_user))
+                #     result_last_message= cursor.fetchone()
+                #     if(cursor.rowcount==1):
+                #         msg = result_last_message["message"]
+                #         pass
+                
 
          
           
