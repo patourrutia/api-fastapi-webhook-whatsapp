@@ -832,13 +832,19 @@ class WhatsAppWrapper:
                                     message=msg,
                                     phone_number=phone_admin
                                 )
+                        
+                            response = client.send_message(        
+                                message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
+                                phone_number=phone_number
+                            )
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
                             response = client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
+
                             response = client.send_message(        
-                                message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
+                                message="✨ Modo Grammar: el usuario puede enviar repuestas para completar oraciones gramaticalmente correcta.",
                                 phone_number=phone_number
                             )
     
@@ -847,15 +853,17 @@ class WhatsAppWrapper:
                                 body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
                             )
-                            response = client.send_message(        
-                                message="✨Te invito a registrarte para poder acceder a nuestro servicio en forma gratuita por un día.",
-                                phone_number=phone_number
-                            )
 
                             response = client.send_message(        
-                                message="✨Registrarse es muy fácil, solo necesito algunos datos sobre ti. ¿Podrías proporcionarme tu nombre, el país y tu email. Ejemplo 👉: alexis,chile,alexis@gmail.com",
+                                message="✨Te invito a registrarte para poder acceder a nuestro servicio en forma gratuita por un día. ",
                                 phone_number=phone_number
                             )
+                           
+
+                            # response = client.send_message(        
+                            #     message="✨Registrarse es muy fácil, solo necesito algunos datos sobre ti. ¿Podrías proporcionarme tu nombre, el país y tu email. Ejemplo 👉: alexis,chile,alexis@gmail.com",
+                            #     phone_number=phone_number
+                            # )
                         
                             date_actual = datetime.datetime.now()   
                             date_last_conexion = date_actual.strftime("%Y-%m-%d %H:%M:%S")
