@@ -233,7 +233,7 @@ class WhatsAppWrapper:
     
 
 
-    def send_message_image(self,  phone_number,url_image):
+    async def send_message_image(self,  phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -243,12 +243,12 @@ class WhatsAppWrapper:
                 "link": url_image
             }
         })
-        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
         return response.status_code
-    def send_message_video(self,  phone_number,body):
+    async def send_message_video(self,  phone_number,body):
         payload = json.dumps({
         "messaging_product": "whatsapp",
         "to": phone_number,
@@ -257,7 +257,7 @@ class WhatsAppWrapper:
             "body": body
             }
         })
-        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
