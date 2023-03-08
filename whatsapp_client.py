@@ -318,7 +318,7 @@ class WhatsAppWrapper:
         cursorclass=pymysql.cursors.DictCursor)
         
         print(changes)
-        messages = changes.get("messages")
+        messages = await changes.get("messages")
         if messages:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
