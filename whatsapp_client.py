@@ -264,9 +264,9 @@ class WhatsAppWrapper:
         return response.status_code
     
    
-    def send_message(self, message, phone_number):
+    async def send_message(self, message, phone_number):
 
-        payload = json.dumps({
+        payload = await json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": phone_number,
@@ -855,7 +855,7 @@ class WhatsAppWrapper:
                                 )
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            response =   client.send_message(        
+                            response =  await client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
