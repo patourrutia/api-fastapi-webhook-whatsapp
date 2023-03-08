@@ -8,3 +8,4 @@ PyMySQL==1.0.2
 google-cloud
 google-cloud-translate
 openai
+requests-async

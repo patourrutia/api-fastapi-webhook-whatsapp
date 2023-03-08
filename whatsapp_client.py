@@ -9,6 +9,7 @@ import random
 import datetime, time
 
 
+
 load_dotenv()
 
 def call_gpt(preg):

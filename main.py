@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import FastAPI, Request, Response
-import requests
+#import requests
 import json
 
 from google.cloud import translate_v2 as translate
@@ -8,7 +8,7 @@ from google.cloud import translate_v2 as translate
 import openai
 import random
 import datetime, time
-
+import requests_async as requests
 # import asyncio
 
 
@@ -53,9 +53,9 @@ async def send_message(message, phone_number):
         }
     })
 
-    response =  requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+    response =  await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
     
-    await  response.status_code == 200, "Error sending message"
+    assert  response.status_code == 200, "Error sending message"
 
     return  response.status_code
 
@@ -69,9 +69,9 @@ async def send_message_image( phone_number,url_image):
                 "link": url_image
             }
         })
-        response =  requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        response =  await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
-        await response.status_code == 200, "Error sending message"
+        assert response.status_code == 200, "Error sending message"
 
         return response.status_code
 
