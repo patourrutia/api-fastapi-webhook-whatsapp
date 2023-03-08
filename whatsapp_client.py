@@ -929,7 +929,7 @@ class WhatsAppWrapper:
                     connection.close()
          
           
-        return response
+        return await response
     
     
     
