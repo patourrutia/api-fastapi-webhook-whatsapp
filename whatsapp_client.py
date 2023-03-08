@@ -308,7 +308,7 @@ class WhatsAppWrapper:
 
     
     
-    async def process_webhook_notification(self, data):
+    def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         connection = pymysql.connect(host='10.10.1.216',
@@ -849,34 +849,34 @@ class WhatsAppWrapper:
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             msg = "USUARIO INTENTANDO CHATIAR SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             
-                            response = await client.send_message(    
+                            response = client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
                                 )
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            response = await client.send_message(        
+                            response =  client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
-                            response = await client.send_message_image(
+                            response = client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
 
-                            response = await client.send_message(        
+                            response =  client.send_message(        
                                 message="✨ Modo Grammar: el usuario puede enviar repuestas para completar oraciones gramaticalmente correcta.",
                                 phone_number=phone_number
                             )
     
-                            response = await client.send_message_video(  
+                            response =  client.send_message_video(  
                                 phone_number=phone_number,
                                 body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
                             )
 
-                            response = await client.send_message(        
+                            response = client.send_message(        
                                 message="✨Te invito a registrarte para poder acceder a nuestro servicio en forma gratuita por un día. ",
                                 phone_number=phone_number
                             )
