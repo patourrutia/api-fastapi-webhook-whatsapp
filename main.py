@@ -33,7 +33,7 @@ headers = {
 }
 API_URL = API_URL + NUMBER_ID
 
-def send_message(message, phone_number):
+async def send_message(message, phone_number):
 
     payload =  json.dumps({
         "messaging_product": "whatsapp",
@@ -52,7 +52,7 @@ def send_message(message, phone_number):
 
     return  response.status_code
 
-def send_message_image( phone_number,url_image):
+async def send_message_image( phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -80,6 +80,8 @@ def verify(request: Request):
         return Response(content=request.query_params["hub.challenge"])
         #return request.query_params['hub.challenge']
     return "Authentication failed. Invalid Token."
+
+
 
 @app.post("/webhook/")
 async def verify(request: Request):
