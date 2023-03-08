@@ -161,7 +161,7 @@ class WhatsAppWrapper:
   
 
 
-    def send_template_message(self, template_name, phone_number):
+     def send_template_message(self, template_name, phone_number):
 
         payload = json.dumps({
             "messaging_product": "whatsapp",
@@ -264,7 +264,7 @@ class WhatsAppWrapper:
         return response.status_code
     
    
-    def send_message(self, message, phone_number):
+    async def send_message(self, message, phone_number):
 
         payload = json.dumps({
             "messaging_product": "whatsapp",
@@ -277,7 +277,7 @@ class WhatsAppWrapper:
             }
         })
 
-        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
@@ -308,7 +308,7 @@ class WhatsAppWrapper:
 
     
     
-    def process_webhook_notification(self, data):
+    async def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         connection = pymysql.connect(host='10.10.1.216',
@@ -855,7 +855,7 @@ class WhatsAppWrapper:
                                 )
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            response =  client.send_message(        
+                            response =  await client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
@@ -865,7 +865,7 @@ class WhatsAppWrapper:
                               url_image=url_image
                             )
 
-                            response =  client.send_message(        
+                            response =  await client.send_message(        
                                 message="✨ Modo Grammar: el usuario puede enviar repuestas para completar oraciones gramaticalmente correcta.",
                                 phone_number=phone_number
                             )
@@ -876,7 +876,7 @@ class WhatsAppWrapper:
 
                             )
 
-                            response = client.send_message(        
+                            response = await client.send_message(        
                                 message="✨Te invito a registrarte para poder acceder a nuestro servicio en forma gratuita por un día. ",
                                 phone_number=phone_number
                             )
