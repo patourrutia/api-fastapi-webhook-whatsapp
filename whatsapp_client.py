@@ -309,9 +309,9 @@ class WhatsAppWrapper:
 
     
     
-    async def process_webhook_notification(self, data):
+    def process_webhook_notification(self, data):
         response = []
-        changes = await  data['entry'][0]['changes'][0]['value']
+        changes =   data['entry'][0]['changes'][0]['value']
         connection = pymysql.connect(host='10.10.1.216',
         user='root',
         password='123456',
@@ -319,7 +319,7 @@ class WhatsAppWrapper:
         cursorclass=pymysql.cursors.DictCursor)
         
         print(changes)
-        messages = await changes.get("messages")
+        messages =  changes.get("messages")
         if messages:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
