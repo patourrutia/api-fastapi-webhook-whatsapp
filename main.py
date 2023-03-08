@@ -55,7 +55,7 @@ async def send_message(message, phone_number):
 
     response =  requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
     
-    assert  response.status_code == 200, "Error sending message"
+    await  response.status_code == 200, "Error sending message"
 
     return  response.status_code
 
@@ -69,9 +69,9 @@ async def send_message_image( phone_number,url_image):
                 "link": url_image
             }
         })
-        response = await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        response =  requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
-        assert response.status_code == 200, "Error sending message"
+        await response.status_code == 200, "Error sending message"
 
         return response.status_code
 
