@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import openai
 import random
 import datetime, time
+#import asyncio
 
 load_dotenv()
 

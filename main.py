@@ -17,20 +17,20 @@ app = FastAPI()
 
 
 @app.get("/")
-async def read_root():
+def read_root():
     print("hola")
     return {"Hello": "World"}
 
 
 @app.get("/webhook/")
-async def verify(request: Request):
+def verify(request: Request):
     if request.query_params['hub.verify_token'] == HOOK_TOKEN:
         return Response(content=request.query_params["hub.challenge"])
         #return request.query_params['hub.challenge']
     return "Authentication failed. Invalid Token."
 
 @app.post("/webhook/")
-def verify(request: Request):
+async def verify(request: Request):
 
     data_json = request.json()
     #print(data_json)
