@@ -277,7 +277,7 @@ class WhatsAppWrapper:
             }
         })
 
-        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
