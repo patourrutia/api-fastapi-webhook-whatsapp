@@ -40,7 +40,7 @@ headers = {
 }
 API_URL = API_URL + NUMBER_ID
 
-async def send_message(message, phone_number):
+def send_message(message, phone_number):
 
     payload =  json.dumps({
         "messaging_product": "whatsapp",
@@ -53,13 +53,13 @@ async def send_message(message, phone_number):
         }
     })
 
-    response =  await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+    response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
     
     assert  response.status_code == 200, "Error sending message"
 
     return  response.status_code
 
-async def send_message_image( phone_number,url_image):
+def send_message_image( phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -69,7 +69,7 @@ async def send_message_image( phone_number,url_image):
                 "link": url_image
             }
         })
-        response =  await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
@@ -109,13 +109,13 @@ async def verify(request: Request):
     if messages:
         phone_number = "56952244429"
         url_image= "https://app.idealsoft.cloud/grammarbot.png"
-        response =   await  send_message_image(
+        response =     send_message_image(
             phone_number=phone_number,
             url_image=url_image
         )
         print("image" + str(response))
 
-        response =   await send_message(        
+        response =    send_message(        
                             message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                             phone_number=phone_number
         )
