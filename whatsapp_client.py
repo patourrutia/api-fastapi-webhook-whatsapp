@@ -860,7 +860,7 @@ class WhatsAppWrapper:
                                 phone_number=phone_number
                             )
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
-                            response = client.send_message_image(
+                            response = await client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
@@ -870,7 +870,7 @@ class WhatsAppWrapper:
                                 phone_number=phone_number
                             )
     
-                            response =  client.send_message_video(  
+                            response =  await client.send_message_video(  
                                 phone_number=phone_number,
                                 body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
