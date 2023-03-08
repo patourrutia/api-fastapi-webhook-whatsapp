@@ -266,7 +266,7 @@ class WhatsAppWrapper:
    
     async def send_message(self, message, phone_number):
 
-        payload = await json.dumps({
+        payload =  json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": phone_number,
@@ -279,7 +279,7 @@ class WhatsAppWrapper:
 
         response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
-        assert response.status_code == 200, "Error sending message"
+        assert await response.status_code == 200, "Error sending message"
 
         return response.status_code
     
