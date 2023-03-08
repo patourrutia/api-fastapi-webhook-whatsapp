@@ -308,7 +308,7 @@ class WhatsAppWrapper:
 
     
     
-    def process_webhook_notification(self, data):
+    async def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         connection = pymysql.connect(host='10.10.1.216',
