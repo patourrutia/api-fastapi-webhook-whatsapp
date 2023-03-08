@@ -62,7 +62,7 @@ def send_message_image( phone_number,url_image):
                 "link": url_image
             }
         })
-        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
