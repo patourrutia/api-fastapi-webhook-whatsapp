@@ -109,13 +109,13 @@ async def verify(request: Request):
     if messages:
         phone_number = "56952244429"
         url_image= "https://app.idealsoft.cloud/grammarbot.png"
-        response =     send_message_image(
+        response =    await send_message_image(
             phone_number=phone_number,
             url_image=url_image
         )
         # print("image" + str(response))
 
-        response =    send_message(        
+        response =  await send_message(        
                             message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                             phone_number=phone_number
         )
