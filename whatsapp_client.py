@@ -264,7 +264,7 @@ class WhatsAppWrapper:
         return response.status_code
     
    
-    async def send_message(self, message, phone_number):
+    def send_message(self, message, phone_number):
 
         payload = json.dumps({
             "messaging_product": "whatsapp",
