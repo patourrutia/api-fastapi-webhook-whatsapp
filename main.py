@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import FastAPI, Request, Response
-#import requests
+import requests
 import json
 
 from google.cloud import translate_v2 as translate
@@ -8,7 +8,7 @@ from google.cloud import translate_v2 as translate
 import openai
 import random
 import datetime, time
-import requests_async as requests
+import requests_async as requestsasc
 # import asyncio
 
 
