@@ -33,8 +33,9 @@ def verify(request: Request):
 @app.post("/webhook/")
 async def verify(request: Request):
     data_json = await request.json()
+    print(data_json)
     #print(data_json)
-    client = WhatsAppWrapper()
-    client.process_webhook_notification(data_json)
+    # client = WhatsAppWrapper()
+    # client.process_webhook_notification(data_json)
     # asyncio.run(client.process_webhook_notification(data_json))
     
