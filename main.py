@@ -79,6 +79,20 @@ def send_message_image( phone_number,url_image):
         # assert response.status_code == 200, "Error sending message"
 
         # return response.status_code
+async def send_message_video( phone_number,body):
+        payload = json.dumps({
+        "messaging_product": "whatsapp",
+        "to": phone_number,
+        "text": {
+            "preview_url": True,
+            "body": body
+            }
+        })
+        response = await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        
+        assert response.status_code == 200, "Error sending message"
+
+        return response.status_code
 
 @app.get("/")
 def read_root():
@@ -97,7 +111,7 @@ def verify(request: Request):
 
 @app.post("/webhook/")
 async def verify(request: Request):
-    data_json =  request.json()
+    data_json = await request.json()
     print(data_json)
 
     response = []
@@ -113,6 +127,12 @@ async def verify(request: Request):
     messages =   changes.get("messages")
     if messages:
         phone_number = "56952244429"
+
+        response =  await send_message_video(  
+            phone_number=phone_number,
+            body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
+        )
+        print("video" + str(response))
         url_image= "https://app.idealsoft.cloud/grammarbot.png"
         send_message_image(
             phone_number=phone_number,
@@ -124,6 +144,7 @@ async def verify(request: Request):
             message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
             phone_number=phone_number
         )
+
         # print("saludo" + str(response))
     #print(data_json)
     # client = WhatsAppWrapper()
