@@ -2,6 +2,13 @@ from typing import Union
 from fastapi import FastAPI, Request, Response
 import requests
 import json
+
+from google.cloud import translate_v2 as translate
+
+import openai
+import random
+import datetime, time
+
 # import asyncio
 
 
@@ -87,16 +94,29 @@ def verify(request: Request):
 async def verify(request: Request):
     data_json = await request.json()
     print(data_json)
-    phone_number = "56952244429"
-    url_image= "https://app.idealsoft.cloud/grammarbot.png"
-    response =   await  send_message_image(
-        phone_number=phone_number,
-        url_image=url_image
-    )
-    response =   await send_message(        
-                        message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
-                        phone_number=phone_number
-    )
+
+    response = []
+    changes =  await data_json['entry'][0]['changes'][0]['value']
+    print(changes)
+    connection = pymysql.connect(host='10.10.1.216',
+    user='root',
+    password='123456',
+    database='grammar_bot',
+    cursorclass=pymysql.cursors.DictCursor)
+    
+    print(changes)
+    messages =   changes.get("messages")
+    if messages:
+        phone_number = "56952244429"
+        url_image= "https://app.idealsoft.cloud/grammarbot.png"
+        response =   await  send_message_image(
+            phone_number=phone_number,
+            url_image=url_image
+        )
+        response =   await send_message(        
+                            message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
+                            phone_number=phone_number
+        )
     #print(data_json)
     # client = WhatsAppWrapper()
     # client.process_webhook_notification(data_json)
