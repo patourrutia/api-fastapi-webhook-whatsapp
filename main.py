@@ -8,7 +8,7 @@ from google.cloud import translate_v2 as translate
 import openai
 import random
 import datetime, time
-import requests_async as requestsasc
+import requests_async 
 # import asyncio
 
 
@@ -88,7 +88,7 @@ async def send_message_video( phone_number,body):
             "body": body
             }
         })
-        response = await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        response = await requests_async.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
