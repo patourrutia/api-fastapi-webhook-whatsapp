@@ -52,7 +52,7 @@ def send_message(message, phone_number):
 
     return  response.status_code
 
-def send_message_image(self,  phone_number,url_image):
+def send_message_image( phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
