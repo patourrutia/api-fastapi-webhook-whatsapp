@@ -113,13 +113,13 @@ async def verify(request: Request):
             phone_number=phone_number,
             url_image=url_image
         )
-        print("image" + response)
+        #print("image" + response)
 
         response =   await send_message(        
                             message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                             phone_number=phone_number
         )
-        print("saludo" + response)
+        #print("saludo" + response)
     #print(data_json)
     # client = WhatsAppWrapper()
     # client.process_webhook_notification(data_json)
