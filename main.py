@@ -96,7 +96,7 @@ async def verify(request: Request):
     print(data_json)
 
     response = []
-    changes =  await data_json['entry'][0]['changes'][0]['value']
+    changes =   data_json['entry'][0]['changes'][0]['value']
     print(changes)
     connection = pymysql.connect(host='10.10.1.216',
     user='root',
