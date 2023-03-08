@@ -52,12 +52,14 @@ def send_message(message, phone_number):
             "body": message
         }
     })
-
-    response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+    requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
     
-    assert  response.status_code == 200, "Error sending message"
+ 
+    # response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+    
+    # assert  response.status_code == 200, "Error sending message"
 
-    return  response.status_code
+    # return  response.status_code
 
 def send_message_image( phone_number,url_image):
         payload = json.dumps({
@@ -69,11 +71,14 @@ def send_message_image( phone_number,url_image):
                 "link": url_image
             }
         })
-        response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
         
-        assert response.status_code == 200, "Error sending message"
 
-        return response.status_code
+        # response =   requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+        
+        # assert response.status_code == 200, "Error sending message"
+
+        # return response.status_code
 
 @app.get("/")
 def read_root():
