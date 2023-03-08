@@ -279,9 +279,9 @@ class WhatsAppWrapper:
 
         response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
-        assert await response.status_code == 200, "Error sending message"
+        assert  response.status_code == 200, "Error sending message"
 
-        return response.status_code
+        return await response.status_code
     
     def send_message_reply(self,idmsg,phone_number, message ):
 
