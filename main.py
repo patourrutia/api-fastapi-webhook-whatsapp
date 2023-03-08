@@ -35,5 +35,5 @@ async def verify(request: Request):
     data_json = await request.json()
     #print(data_json)
     client = WhatsAppWrapper()
-    response = await client.process_webhook_notification(data_json)
+    response = client.process_webhook_notification(data_json)
     

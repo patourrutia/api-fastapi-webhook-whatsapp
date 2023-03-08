@@ -859,6 +859,8 @@ class WhatsAppWrapper:
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
+
+                            
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
                             response = await client.send_message_image(
                               phone_number=phone_number,
