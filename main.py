@@ -30,10 +30,10 @@ async def verify(request: Request):
     return "Authentication failed. Invalid Token."
 
 @app.post("/webhook/")
-async def verify(request: Request):
+def verify(request: Request):
 
-    data_json = await request.json()
+    data_json = request.json()
     #print(data_json)
     client = WhatsAppWrapper()
-    response = await client.process_webhook_notification(data_json)
+    response = client.process_webhook_notification(data_json)
     

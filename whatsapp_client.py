@@ -233,7 +233,7 @@ class WhatsAppWrapper:
     
 
 
-    async def send_message_image(self,  phone_number,url_image):
+    def send_message_image(self,  phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -243,7 +243,7 @@ class WhatsAppWrapper:
                 "link": url_image
             }
         })
-        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
@@ -264,7 +264,7 @@ class WhatsAppWrapper:
         return response.status_code
     
    
-    async def send_message(self, message, phone_number):
+    def send_message(self, message, phone_number):
 
         payload =  json.dumps({
             "messaging_product": "whatsapp",
@@ -277,7 +277,7 @@ class WhatsAppWrapper:
             }
         })
 
-        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert  response.status_code == 200, "Error sending message"
 
@@ -308,7 +308,7 @@ class WhatsAppWrapper:
 
     
     
-    async def process_webhook_notification(self, data):
+    def process_webhook_notification(self, data):
         response = []
         changes = data['entry'][0]['changes'][0]['value']
         connection = pymysql.connect(host='10.10.1.216',
@@ -855,14 +855,14 @@ class WhatsAppWrapper:
                                 )
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            response =  await client.send_message(        
+                            response =   client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
 
 
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
-                            response =   await client.send_message_image(
+                            response =    client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
