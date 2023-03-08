@@ -233,7 +233,7 @@ class WhatsAppWrapper:
     
 
 
-    def send_message_image(self,  phone_number,url_image):
+    async def send_message_image(self,  phone_number,url_image):
         payload = json.dumps({
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -243,7 +243,7 @@ class WhatsAppWrapper:
                 "link": url_image
             }
         })
-        response = requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
+        response = await requests.request("POST", f"{self.API_URL}/messages", headers=self.headers, data=payload)
         
         assert response.status_code == 200, "Error sending message"
 
@@ -862,7 +862,7 @@ class WhatsAppWrapper:
 
 
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
-                            response =  client.send_message_image(
+                            response =   await client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
