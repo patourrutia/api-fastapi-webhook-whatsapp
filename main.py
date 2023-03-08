@@ -97,7 +97,7 @@ def verify(request: Request):
 
 @app.post("/webhook/")
 async def verify(request: Request):
-    data_json = await request.json()
+    data_json =  request.json()
     print(data_json)
 
     response = []
@@ -121,8 +121,8 @@ async def verify(request: Request):
         # print("image" + str(response))
 
         send_message(        
-                            message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
-                            phone_number=phone_number
+            message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
+            phone_number=phone_number
         )
         # print("saludo" + str(response))
     #print(data_json)
