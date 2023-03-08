@@ -53,7 +53,7 @@ async def send_message(message, phone_number):
         }
     })
 
-    response = await requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
+    response =  requests.request("POST", f"{API_URL}/messages", headers=headers, data=payload)
     
     assert  response.status_code == 200, "Error sending message"
 
