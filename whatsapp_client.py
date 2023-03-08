@@ -849,13 +849,13 @@ class WhatsAppWrapper:
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             msg = "USUARIO INTENTANDO CHATIAR SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             
-                            response = await client.send_message(    
+                            response =  client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
                                 )
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            response =  await client.send_message(        
+                            response =   client.send_message(        
                                 message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
                                 phone_number=phone_number
                             )
