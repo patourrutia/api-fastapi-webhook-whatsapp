@@ -849,7 +849,7 @@ class WhatsAppWrapper:
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             msg = "USUARIO INTENTANDO CHATIAR SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             
-                            response = client.send_message(    
+                            response = await client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
                                 )
