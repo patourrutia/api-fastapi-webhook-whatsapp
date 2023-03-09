@@ -1,22 +1,8 @@
 from typing import Union
 from fastapi import FastAPI, Request, Response
-import requests
-import json
-
-from google.cloud import translate_v2 as translate
-
-import openai
-import random
-import datetime, time
-import requests_async 
-# import asyncio
-
-
-
-
 import os
 from whatsapp_client import WhatsAppWrapper
-import pymysql.cursors
+
 from dotenv import load_dotenv
 
 load_dotenv()
