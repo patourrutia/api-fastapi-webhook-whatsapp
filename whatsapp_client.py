@@ -829,36 +829,57 @@ class WhatsAppWrapper:
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     client.send_message(        
-                                        message="¡Hola! 👋.. El periodo gratuito ha finalizado. Si desea continuar disfrutando de nuestro servicio, le sugerimos comunicarse por WhatsApp al: +56926249071 o pincha aquí  👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot .",
+                                        message="¡Hola! 👋 Lamentablemente, el período gratuito ha finalizado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos contactarnos por WhatsApp al siguiente número: +56926249071, o haz clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
                                         phone_number=phone_number
                                     )
                                     almacena_respuestas(respuesta_cliente_normal,16,id_user,cursor,connection)
+                                    msg = "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    client.send_message(    
+                                            message=msg,
+                                            phone_number=phone_admin
+                                    )
                                 elif(status== 3):
                                     #PERIDO PAGADO EXPIRADO  TYPE 17
                                     client.send_message(        
-                                        message="¡Hola! 👋.. El periodo de su succripcion a finalizado. Si desea continuar disfrutando de nuestro servicio, le sugerimos comunicarse por WhatsApp  al: +56926249071 o pincha aquí  👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot .",
+                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado. Si desea seguir disfrutando de nuestro servicio, lo invitamos a contactarnos por WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción y formas de pago 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
                                         phone_number=phone_number
                                     )
                                     sql = "UPDATE user SET status= 5  WHERE id=%s" 
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     almacena_respuestas(respuesta_cliente_normal,17,id_user,cursor,connection)
+                                    msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    client.send_message(    
+                                            message=msg,
+                                            phone_number=phone_admin
+                                    )
+
                                 else:
                                     pass
                         elif(status== 4 ):
                            #OTRO ESTADO 4  TYPE 18
                             client.send_message(        
-                                    message="¡Hola! 👋.. El periodo gratuito ha finalizado. Si desea continuar disfrutando de nuestro servicio, le sugerimos comunicarse por WhatsApp al: +56926249071 o pincha aquí  👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot .",
+                                    message="¡Hola! 👋 Lamentablemente, el período gratuito ha finalizado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos contactarnos por WhatsApp al siguiente número: +56926249071, o haz clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
                                     phone_number=phone_number
                                 )
                             almacena_respuestas(respuesta_cliente_normal,18,id_user,cursor,connection)
+                            msg = "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            client.send_message(    
+                                    message=msg,
+                                    phone_number=phone_admin
+                                )
                           
                         elif(status== 5 ):
                             #OTRO ESTADO 5  TYPE 19
                             client.send_message(        
-                                        message="¡Hola! 👋.. El periodo de su succripcion a finalizado. Si desea continuar disfrutando de nuestro servicio, le sugerimos comunicarse por WhatsApp al: +56926249071 o pincha aquí  👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot .",
+                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado. Si desea seguir disfrutando de nuestro servicio, lo invitamos a contactarnos por WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción y formas de pago 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
                                         phone_number=phone_number
                             )
+                            msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            client.send_message(    
+                                    message=msg,
+                                    phone_number=phone_admin
+                                )
                             almacena_respuestas(respuesta_cliente_normal,19,id_user,cursor,connection)
 
                     else:
@@ -874,7 +895,7 @@ class WhatsAppWrapper:
                              # TYPE 1
                             id_user  = 1
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
-                            msg = "USUARIO INTENTANDO CHATIAR SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            
                             
                             
                             url_image= "https://app.idealsoft.cloud/grammarbot.png"
@@ -883,6 +904,7 @@ class WhatsAppWrapper:
                               url_image=url_image
                             )
                             print("imagen enviada" +  str(response))
+                            msg = "USUARIO INTENTANDO ACCEDER SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
@@ -890,7 +912,7 @@ class WhatsAppWrapper:
                             almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
                             client.send_message(        
-                                message="👋Hola, soy tu asistente virtual, estoy aquí para ayudarte a practicar y mejorar tu inglés de forma fácil y divertida. Con MyGrammarBot🤖 podrás responder ejercicios💪 interactivos, practicar tu vocabulario y gramática.",
+                                message="👋¡Bienvenido/a! Soy tu asistente virtual y mi objetivo es ayudarte a mejorar tu inglés de manera sencilla y entretenida. Con MyGrammarBot🤖, tendrás la oportunidad de practicar gramática y enriquecer tu vocabulario en inglés.",
                                 phone_number=phone_number
                             )
 
@@ -898,18 +920,18 @@ class WhatsAppWrapper:
                           
 
                             client.send_message(        
-                                message="✨ Modo Grammar: el usuario puede enviar repuestas para completar oraciones gramaticalmente correcta.",
+                                message="✨ Modo Grammar: el usuario puede enviar respuestas para completar oraciones gramaticalmente correctas.",
                                 phone_number=phone_number
                             )
     
                             client.send_message_video(  
                                 phone_number=phone_number,
-                                body ="✨Visita el siguiente link para ver el funcionamiento  del modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
+                                body ="✨Visita el siguiente enlace para ver cómo funciona el Modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
                             )
 
                             client.send_message(        
-                                message="✨Te invito a registrarte para poder acceder a nuestro servicio en forma gratuita por un día. ",
+                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita durante un día? Si es así, por favor, compártenos tu nombre para que podamos registrarte en nuestro sistema y así puedas comenzar a disfrutar de todo lo que tenemos para ofrecer.",
                                 phone_number=phone_number
                             )
                            
