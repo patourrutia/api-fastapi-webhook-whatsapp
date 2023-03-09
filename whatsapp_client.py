@@ -863,7 +863,7 @@ class WhatsAppWrapper:
                               phone_number=phone_number,
                               url_image=url_image
                             )
-                            print("imagen enviada" +  response)
+                            print("imagen enviada" +  str(response))
                             client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
