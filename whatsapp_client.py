@@ -318,16 +318,18 @@ class WhatsAppWrapper:
     async def process_webhook_notification(self, data):
         response = []
         changes =   data['entry'][0]['changes'][0]['value']
-        print(changes)
         connection = pymysql.connect(host='10.10.1.216',
         user='root',
         password='123456',
         database='grammar_bot',
         cursorclass=pymysql.cursors.DictCursor)
         
-        print(changes)
+        
         messages =   changes.get("messages")
         if messages:
+            print("FROM CLIENTE")
+            print("FROM CLIENTE")
+            print(changes)
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
             idmsg = data['entry'][0]['changes'][0]['value']['messages'][0]['id']
@@ -915,7 +917,9 @@ class WhatsAppWrapper:
             #print("NO SON MENSAJES DE CLIENTE...")
             # print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
             # print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
-
+            print("FROM FACEBOOK")
+            print("FROM FACEBOOK")
+            print(changes)
             if (data['entry'][0]['changes'][0]['value']['statuses'][0]['status']=="failed"):
                 print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
                 print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
