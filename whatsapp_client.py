@@ -373,6 +373,22 @@ class WhatsAppWrapper:
                         cursor.execute(sql)
                         connection.commit()
 
+                        sql = "SELECT message FROM message_last_to_client WHERE id_user=%s"
+                        cursor.execute(sql,(id_user))
+                        result_last_msg= cursor.fetchone()
+                        if(cursor.rowcount==1):
+                            last_message = result_last_msg["message"]
+                            client.send_message(        
+                                message=last_message,
+                                phone_number=phone_number
+                            )
+                            sql = "DELETE message_last_to_client WHERE id_user={var1}".format(var1=str(id_user))   
+                            cursor.execute(sql)
+                            connection.commit()
+
+                        
+                        
+
 
                         opcion = ""
                         data_respuesta = ""
