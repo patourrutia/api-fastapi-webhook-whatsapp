@@ -857,6 +857,13 @@ class WhatsAppWrapper:
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             msg = "USUARIO INTENTANDO CHATIAR SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             
+                            
+                            url_image= "https://app.idealsoft.cloud/grammarbot.png"
+                            response =   await  client.send_message_image(
+                              phone_number=phone_number,
+                              url_image=url_image
+                            )
+                            print("imagen enviada" +  response)
                             client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
@@ -869,11 +876,7 @@ class WhatsAppWrapper:
                             )
 
 
-                            url_image= "https://app.idealsoft.cloud/grammarbot.png"
-                            response =   await  client.send_message_image(
-                              phone_number=phone_number,
-                              url_image=url_image
-                            )
+                          
 
                             client.send_message(        
                                 message="✨ Modo Grammar: el usuario puede enviar repuestas para completar oraciones gramaticalmente correcta.",
