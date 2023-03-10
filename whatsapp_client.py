@@ -894,7 +894,7 @@ class WhatsAppWrapper:
                         else:
                              # TYPE 1
                             id_user  = 1
-                             url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
+                            url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
                             response =   await  client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
