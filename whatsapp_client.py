@@ -894,16 +894,17 @@ class WhatsAppWrapper:
                         else:
                              # TYPE 1
                             id_user  = 1
-                            almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
-                            
-                            
-                            
-                            url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
+                             url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
                             response =   await  client.send_message_image(
                               phone_number=phone_number,
                               url_image=url_image
                             )
                             print("imagen enviada" +  str(response))
+                            almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
+                            
+                            
+                            
+                           
                             msg = "USUARIO INTENTANDO ACCEDER SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             client.send_message(    
                                     message=msg,
