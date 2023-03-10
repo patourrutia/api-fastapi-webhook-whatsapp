@@ -526,11 +526,11 @@ class WhatsAppWrapper:
                             connection.commit()
                             
                             client.send_message(        
-                                message="El registro fue éxitoso, recuerda que desde este momento se activará tu periodo de prueba de un día. Si tienes dudas o consultas las puedes hacer al WhatsApp: +56926249071 o al e-mail: mygrammarbot@gmail.com",
+                                message="¡Registro exitoso! A partir de ahora, podrás disfrutar de nuestro servicio gratuito de un día. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
                                 phone_number=phone_number,
                             )
                             client.send_message(        
-                                message="¡Vamos a empezar con los ejercicios interactivos de gramática! ¡Ponte cómodo y comencemos!💪¡Good luck!👋. ",
+                                message="¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
                                 phone_number=phone_number,
                             )
                             
