@@ -624,7 +624,7 @@ class WhatsAppWrapper:
                                             phone_number=phone_number
                                         )
                                         client.send_message(        
-                                            message="Pago aceptado, puedes seguir disfrutando nuestro servicio",
+                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio.",
                                             phone_number=data_respuesta
                                         )
                                         envia_ultima_sentencia(cursor,level,data_respuesta)
@@ -646,7 +646,7 @@ class WhatsAppWrapper:
                                     almacena_respuestas(respuesta_cliente_normal,5,id_user,cursor,connection)
                                 elif((opcion =='no_permitido_mayor_15805')) :
                                     #TYPE 5
-                                    msg = "El nivel ingresado({var1}) debe ser menor a 15805".format(var1=str(data_respuesta))
+                                    msg = "El nivel ingresado ({var1}) debe ser inferior a 15805.".format(var1=str(data_respuesta))
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number
@@ -663,7 +663,7 @@ class WhatsAppWrapper:
                                         envia_ultima_sentencia(cursor,data_respuesta,phone_number)
                                     
                                     else:
-                                        msg = "El nivel ingresado es N{var1}, no debe ser mayor a el maximo obtenido, su nivel maximo obtenido es {var2}".format(var1=str(data_respuesta),var2=str(level))
+                                        msg = "El nivel ingresado es N{var1}, no debe ser mayor que el nivel máximo obtenido, que es N{var2}.".format(var1=str(data_respuesta),var2=str(level))
                                         client.send_message(        
                                             message=msg,
                                             phone_number=phone_number
@@ -829,7 +829,7 @@ class WhatsAppWrapper:
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, el período gratuito ha finalizado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos contactarnos por WhatsApp al siguiente número: +56926249071, o haz clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
+                                        message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20quiero%20conocer%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot.",
                                         phone_number=phone_number
                                     )
                                     almacena_respuestas(respuesta_cliente_normal,16,id_user,cursor,connection)
@@ -841,7 +841,7 @@ class WhatsAppWrapper:
                                 elif(status== 3):
                                     #PERIDO PAGADO EXPIRADO  TYPE 17
                                     client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado. Si desea seguir disfrutando de nuestro servicio, lo invitamos a contactarnos por WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción y formas de pago 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
+                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20quiero%20conocer%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot.",
                                         phone_number=phone_number
                                     )
                                     sql = "UPDATE user SET status= 5  WHERE id=%s" 
@@ -859,7 +859,7 @@ class WhatsAppWrapper:
                         elif(status== 4 ):
                            #OTRO ESTADO 4  TYPE 18
                             client.send_message(        
-                                    message="¡Hola! 👋 Lamentablemente, el período gratuito ha finalizado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos contactarnos por WhatsApp al siguiente número: +56926249071, o haz clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
+                                    message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20quiero%20conocer%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot.",
                                     phone_number=phone_number
                                 )
                             almacena_respuestas(respuesta_cliente_normal,18,id_user,cursor,connection)
@@ -872,7 +872,7 @@ class WhatsAppWrapper:
                         elif(status== 5 ):
                             #OTRO ESTADO 5  TYPE 19
                             client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado. Si desea seguir disfrutando de nuestro servicio, lo invitamos a contactarnos por WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción y formas de pago 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20soy%20de%20"+ elpais +",%20quiero%20conocer%20el%20valor%20y%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot. ¡Estamos listos para ayudarte a seguir mejorando tu inglés con nuestro servicio!",
+                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola%20quiero%20conocer%20las%20formas%20de%20pago%20para%20seguir%20utilizando%20MyGrammarBot.",
                                         phone_number=phone_number
                             )
                             msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
@@ -937,11 +937,7 @@ class WhatsAppWrapper:
                             )
                            
 
-                            # response = client.send_message(        
-                            #     message="✨Registrarse es muy fácil, solo necesito algunos datos sobre ti. ¿Podrías proporcionarme tu nombre, el país y tu email. Ejemplo 👉: alexis,chile,alexis@gmail.com",
-                            #     phone_number=phone_number
-                            # )
-                        
+                         
                             date_actual = datetime.datetime.now()   
                             date_last_conexion = date_actual.strftime("%Y-%m-%d %H:%M:%S")
                             date_created = date_actual.strftime("%Y-%m-%d %H:%M:%S")
