@@ -682,7 +682,7 @@ class WhatsAppWrapper:
                                             phone_number=phone_number
                                         )
                                         client.send_message(        
-                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_client,
+                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + str(date_expired_client),
                                             phone_number=data_respuesta
                                         )
                                         envia_ultima_sentencia(cursor,level,data_respuesta)
