@@ -720,7 +720,7 @@ class WhatsAppWrapper:
                                         envia_ultima_sentencia(cursor,data_respuesta,phone_number)
                                     
                                     else:
-                                        msg = "El nivel ingresado es N{var1}, no debe ser mayor que el nivel máximo obtenido, que es N{var2}.".format(var1=str(data_respuesta),var2=str(level))
+                                        msg = "El nivel ingresado es N{var1}, no debe ser mayor que el nivel máximo obtenido, que es N{var2}.".format(var1=str(data_respuesta),var2=str(maxlevel))
                                         client.send_message(        
                                             message=msg,
                                             phone_number=phone_number
