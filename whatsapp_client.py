@@ -670,6 +670,7 @@ class WhatsAppWrapper:
                                         date_actual = datetime.datetime.now()
                                         date_expired = date_actual + datetime.timedelta(days=30)
                                         date_expired = date_expired.strftime("%Y-%m-%d %H:%M:%S")  
+                                        date_expired_client = date_expired.strftime("%d-%m-%Y")  
 
                                         date_paid = date_actual.strftime("%Y-%m-%d %H:%M:%S")
                                         sql = "UPDATE user SET status=3, date_paid='{var1}' , date_expired='{var2}' WHERE id={var3}".format( var1=str(date_paid),  var2=str(date_expired), var3=str(id_user2))   
@@ -681,7 +682,7 @@ class WhatsAppWrapper:
                                             phone_number=phone_number
                                         )
                                         client.send_message(        
-                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio.",
+                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_client,
                                             phone_number=data_respuesta
                                         )
                                         envia_ultima_sentencia(cursor,level,data_respuesta)
