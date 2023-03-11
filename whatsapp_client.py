@@ -829,7 +829,7 @@ class WhatsAppWrapper:
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola!,¿Cuál%20es%20el%20costo%20mensual%20de%20la%20suscripción?",
+                                        message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola!%20¿Cuál%20es%20el%20precio%20mensual%20de%20la%20suscripción%20para%20seguir%20utilizando%20MyGrammarBot?",
                                         phone_number=phone_number
                                     )
                                     almacena_respuestas(respuesta_cliente_normal,16,id_user,cursor,connection)
@@ -859,7 +859,7 @@ class WhatsAppWrapper:
                         elif(status== 4 ):
                            #OTRO ESTADO 4  TYPE 18
                             client.send_message(        
-                                    message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola,¿Cuál%20es%20el%20costo%20mensual%20de%20la%20suscripción?",
+                                    message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola!%20¿Cuál%20es%20el%20precio%20mensual%20de%20la%20suscripción%20para%20seguir%20utilizando%20MyGrammarBot?",
                                     phone_number=phone_number
                                 )
                             almacena_respuestas(respuesta_cliente_normal,18,id_user,cursor,connection)
