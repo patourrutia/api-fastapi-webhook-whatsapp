@@ -406,6 +406,18 @@ class WhatsAppWrapper:
                                     data_respuesta = text[17:]
                                     #print("mensaje_no_valido")
                                     #print(data_respuesta)
+                                elif((text[0:5].lower()=="modo1")):
+                                    mod = 1
+                                    data_respuesta = text[5:]  
+                                    opcion ="modo"
+                                elif((text[0:5].lower()=="modo2")):
+                                    mod = 2
+                                    data_respuesta = text[5:]  
+                                    opcion ="modo"
+                                elif((text[0:5].lower()=="modo3")):
+                                    mod = 3
+                                    data_respuesta = text[5:]  
+                                    opcion ="modo"
                                 else:
                                     #NO HACE NADA
                                     pass
@@ -587,6 +599,51 @@ class WhatsAppWrapper:
 
                                         envia_ultima_sentencia(cursor,level,phone)
                                         almacena_respuestas(respuesta_cliente_normal,3,id_user,cursor,connection)
+
+                                    else:
+                                        client.send_message(        
+                                            message="ERROR- USUARIO NO REGISTRADO",
+                                            phone_number=phone_number
+                                        )
+                                elif(opcion =='modo'):
+                                    
+                                    #print("PAGAR " + data_opcion_pagar) # TYPE 4
+                                    data_respuesta = data_respuesta.replace("+","")
+                                    data_respuesta = data_respuesta.replace(" ","")
+                                    
+
+                                    sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
+                                    cursor.execute(sql,(data_respuesta))
+                                    result_user= cursor.fetchone()
+                                    
+
+                                    if(cursor.rowcount==1):
+                                        id_user2 = result_user["id"]
+                                        status = result_user["status"]
+                                        level = result_user["level"]
+                                    
+                                      
+                                        sql = "UPDATE user SET  modo='{var1}' WHERE id={var2}".format(var1=mod, var2=str(id_user2))   
+                                        cursor.execute(sql)
+                                        connection.commit()
+
+                                        client.send_message(        
+                                            message="CAMBIO MODO ACEPTADO",
+                                            phone_number=phone_number
+                                        )
+                                        if (mod == 1):
+                                            modito = "GRAMMAR"
+                                        elif (mod == 2):
+                                            modito = "CHATGPT"
+                                        elif( mod == 3):
+                                            modito = "GRAMMAR Y CHATGPT"
+
+                                        client.send_message(        
+                                            message="El cambio de modo se ha realizado exitosamente. Ahora estás en el modo: " +modito,
+                                            phone_number=data_respuesta
+                                        )
+                                        envia_ultima_sentencia(cursor,level,data_respuesta)
+                                        almacena_respuestas(respuesta_cliente_normal,7,id_user,cursor,connection)
 
                                     else:
                                         client.send_message(        
