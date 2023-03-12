@@ -258,7 +258,7 @@ class WhatsAppWrapper:
         "messaging_product": "whatsapp",
         "to": phone_number,
         "text": {
-            "preview_url": True,
+            "preview_url": False,
             "body": body
             }
         })
@@ -537,7 +537,7 @@ class WhatsAppWrapper:
                             connection.commit()
                             
                             client.send_message(        
-                                message="¡Registro exitoso! A partir de ahora, podrás disfrutar de nuestro servicio gratuito por un día. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
+                                message="¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por un día. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
                                 phone_number=phone_number,
                             )
                             client.send_message(        
