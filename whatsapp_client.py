@@ -554,7 +554,7 @@ class WhatsAppWrapper:
                                 phone_number=phone_number,
                             )
 
-                            msgADNMIN ="USUARIO NUMERO" + id_user +" A COMENZDO A USAR MYGRAMMARBOT, PHONE" + phone_number
+                            msgADNMIN ="USUARIO NUMERO" + str(id_user) +" A COMENZDO A USAR MYGRAMMARBOT, PHONE" + str(phone_number)
                             client.send_message(        
                                 message=msgADNMIN,
                                 phone_number=phone_admin,
