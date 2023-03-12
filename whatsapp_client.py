@@ -396,7 +396,8 @@ class WhatsAppWrapper:
                             #pagar  mensaje_no_valido
                             if((len(text)>=4)):
                                 if((text[0:5].lower()=="pagar")):
-                                    data_respuesta = text[5:]  
+                                    mod = int(text[5:7] )
+                                    data_respuesta = text[7:] 
                                     opcion ="pagar"
                                     #print("Pagar")
                                     #print(data_respuesta)
@@ -405,18 +406,11 @@ class WhatsAppWrapper:
                                     data_respuesta = text[17:]
                                     #print("mensaje_no_valido")
                                     #print(data_respuesta)
-                                elif((text[0:5].lower()=="modo1")):
-                                    mod = 1
+                                elif((text[0:4].lower()=="modo")):
+                                    mod = int(text[4:5])
                                     data_respuesta = text[5:]  
                                     opcion ="modo"
-                                elif((text[0:5].lower()=="modo2")):
-                                    mod = 2
-                                    data_respuesta = text[5:]  
-                                    opcion ="modo"
-                                elif((text[0:5].lower()=="modo3")):
-                                    mod = 3
-                                    data_respuesta = text[5:]  
-                                    opcion ="modo"
+            
                                 else:
                                     #NO HACE NADA
                                     pass
@@ -672,9 +666,16 @@ class WhatsAppWrapper:
                                         status = result_user["status"]
                                         level = result_user["level"]
                                         
+                                        
+
                                         date_actual = datetime.datetime.now()
-                                        date_expired = date_actual + datetime.timedelta(days=30)
-                                        date_expired_clien = date_actual + datetime.timedelta(days=30)
+                                        day_supcrypcion = mod * 31
+
+                                      
+                                        date_expired = date_actual + datetime.timedelta(days=day_supcrypcion)
+                                        date_expired_clien = date_actual + datetime.timedelta(days=day_supcrypcion)
+
+
                                         date_expired = date_expired.strftime("%Y-%m-%d %H:%M:%S")  
 
                                         date_expired_clien_str = date_expired_clien.strftime("%d-%m-%Y ") 
