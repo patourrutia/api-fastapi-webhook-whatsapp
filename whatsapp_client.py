@@ -759,7 +759,7 @@ class WhatsAppWrapper:
                                     result_sentence = cursor.fetchall()
                                    
                                     for  i, dicc_sentence in enumerate(result_sentence):
-                                        print(str(id_user) +" - " + str(dicc_sentence["id"])))
+                                        print(str(id_user) +" - " + str(dicc_sentence["id"]))
                                         if (str(id_user) == str(dicc_sentence["id"])):
                                             position = i
                                             break
