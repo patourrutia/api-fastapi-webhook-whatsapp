@@ -854,7 +854,7 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    if (int(level)%20==0):
+                                    if (int(level)%50==0):
                                         sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                         cursor.execute(sql)
                                         result_sentence = cursor.fetchall()
