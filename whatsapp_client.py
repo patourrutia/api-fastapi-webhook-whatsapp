@@ -373,19 +373,21 @@ class WhatsAppWrapper:
                         cursor.execute(sql)
                         connection.commit()
 
-                        sql = "SELECT message FROM message_last_to_client WHERE id_user=%s"
-                        cursor.execute(sql,(id_user))
-                        result_last_msg= cursor.fetchone()
-                        if(cursor.rowcount==1):
-                            last_message = result_last_msg["message"]
-                            client.send_message(        
-                                message=last_message,
-                                phone_number=phone_number
-                            )
-                            sql = "DELETE FROM message_last_to_client WHERE id_user={var1}".format(var1=str(id_user))   
+                        if (phone_number =="56926249071"):
+                            sql = "SELECT id, message FROM message_last_to_client WHERE id_user=%s"
+                            cursor.execute(sql,(id_user))
+                            result_msg_no_enviados = cursor.fetchall()
+                            for  dicc_msg in enumerate(result_msg_no_enviados):
+                                last_message = dicc_msg["message"]
+                                id_last = dicc_msg["id"]
+                                client.send_message(        
+                                    message=last_message,
+                                    phone_number=phone_number
+                                )
+                                sql = "DELETE FROM message_last_to_client WHERE id={var1}".format(var1=id_last)   
 
-                            cursor.execute(sql)
-                            connection.commit()
+                                cursor.execute(sql)
+                                connection.commit()
 
                         
                         
@@ -550,6 +552,12 @@ class WhatsAppWrapper:
                             client.send_message(        
                                 message=msg,
                                 phone_number=phone_number,
+                            )
+
+                            msgADNMIN ="USUARIO NUMERO" + id_user +" A COMENZDO A USAR MYGRAMMARBOT, PHONE" + phone_number
+                            client.send_message(        
+                                message=msgADNMIN,
+                                phone_number=phone_admin,
                             )
                             #time.sleep(10)
                             envia_ultima_sentencia(cursor,level,phone_number)
@@ -970,7 +978,7 @@ class WhatsAppWrapper:
                                     message=msg,
                                     phone_number=phone_admin
                                 )
-                            almacena_envio_msg(msg,"send",id_user,cursor,connection)
+                            #almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
                             client.send_message(        
                                 message="👋¡Bienvenido/a! Soy tu asistente virtual y mi objetivo es ayudarte a mejorar tu inglés de manera sencilla y entretenida. Con MyGrammarBot🤖, tendrás la oportunidad de practicar gramática y enriquecer tu vocabulario en inglés.",
@@ -1020,23 +1028,9 @@ class WhatsAppWrapper:
                 print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
                 print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
                 phone_number = data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']
-                with connection.cursor() as cursor:
-                    sql = "SELECT id FROM user WHERE number_phone=%s"
-                    cursor.execute(sql,(phone_number))
-                    result_user= cursor.fetchone()
-                    client = WhatsAppWrapper() 
-                    client.send_template_message("pregunta_envio_mensajes", phone_number)
-
-                    # if(cursor.rowcount==1):
-                    #     id_user = result_user["id"]
-                    #     sql = "SELECT message FROM message_last_to_client WHERE id_user=%s "
-                    #     cursor.execute(sql,(id_user))
-                    #     result_last_message= cursor.fetchone()
-                    #     if(cursor.rowcount==1):
-                    #         msg = result_last_message["message"]
-                    #         pass
-                    
-                    connection.close()
+                client = WhatsAppWrapper() 
+                client.send_template_message("pregunta_envio_mensajes", phone_number)
+           
          
           
         return  response
