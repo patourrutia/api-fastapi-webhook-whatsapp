@@ -757,11 +757,11 @@ class WhatsAppWrapper:
                                     sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
                                     cursor.execute(sql)
                                     result_sentence = cursor.fetchall()
-                                   
+                                    p =0
                                     for  i, dicc_sentence in enumerate(result_sentence):
-                                       #print(str(id_user) +" - " + str(dicc_sentence["id"]))
+                                        p+=1
                                         if (str(id_user) == str(dicc_sentence["id"])):
-                                            position = i
+                                            position = p
                                             break
                                         
                                       
