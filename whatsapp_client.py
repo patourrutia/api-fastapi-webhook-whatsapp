@@ -754,15 +754,7 @@ class WhatsAppWrapper:
                                 elif((opcion =='t')) :
                                     # TYPE 8
 
-                                    sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
-                                    cursor.execute(sql)
-                                    result_sentence = cursor.fetchall()
-                                    p =0
-                                    for  i, dicc_sentence in enumerate(result_sentence):
-                                        p+=1
-                                        if (str(id_user) == str(dicc_sentence["id"])):
-                                            position = p
-                                            break
+                                    
                                         
                                       
 
@@ -772,8 +764,27 @@ class WhatsAppWrapper:
                                     msg= " Top 20 🏆\n"
                                     for  i, dicc_sentence in enumerate(result_sentence):
                                         name_whatsapp = dicc_sentence["name_whatsapp"]
-                                        msg= msg + "\n🏆 "+ str(int(i) +1 )  + ".-" +name_whatsapp
+                                        if (int(i) == 0):
+                                                medalla ="🥇"
+                                        elif(int(i) == 1):
+                                            medalla ="🥈"
+                                        elif(int(i) == 2):
+                                            medalla ="🥉"
+                                        else:
+                                            medalla ="🏅"
+                                        msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
                                  
+
+
+                                    sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
+                                    cursor.execute(sql)
+                                    result_sentence = cursor.fetchall()
+                                    p = 0
+                                    for  i, dicc_sentence in enumerate(result_sentence):
+                                        p+=1
+                                        if (str(id_user) == str(dicc_sentence["id"])):
+                                            position = p
+                                            break
                                     msg= msg + "\n\n Tu posicion es " + str(position)
                                     client.send_message(        
                                         message=msg,
@@ -850,8 +861,27 @@ class WhatsAppWrapper:
                                         msg= " Top 20 🏆\n"
                                         for  i, dicc_sentence in enumerate(result_sentence):
                                             name_whatsapp = dicc_sentence["name_whatsapp"]
-                                            msg= msg + "\n🏆 "+ str(int(i) +1 )  + ".-" +name_whatsapp
-                              
+                                            if (int(i) == 0):
+                                                medalla ="🥇"
+                                            elif(int(i) == 1):
+                                                medalla ="🥈"
+                                            elif(int(i) == 2):
+                                                medalla ="🥉"
+                                            else:
+                                                medalla ="🏅"
+                                            msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
+                                        
+                                        sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
+                                        cursor.execute(sql)
+                                        result_sentence = cursor.fetchall()
+                                        p = 0
+                                        for  i, dicc_sentence in enumerate(result_sentence):
+                                            p+=1
+                                            if (str(id_user) == str(dicc_sentence["id"])):
+                                                position = p
+                                                break
+                                        msg= msg + "\n\n Tu posicion es " + str(position)
+
                                         client.send_message(        
                                             message=msg,
                                             phone_number=phone_number,
