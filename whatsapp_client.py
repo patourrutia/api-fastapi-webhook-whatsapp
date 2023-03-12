@@ -751,7 +751,7 @@ class WhatsAppWrapper:
          
                                 elif((opcion =='t')) :
                                     # TYPE 8
-                                    sql = "SELECT name_whatsapp FROM user ORDER BY level desc limit 10"
+                                    sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 10"
                                     cursor.execute(sql)
                                     result_sentence = cursor.fetchall()
                                     msg= " Top 10 🏆\n"
