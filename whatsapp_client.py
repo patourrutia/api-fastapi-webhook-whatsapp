@@ -377,7 +377,7 @@ class WhatsAppWrapper:
                             sql = "SELECT id, message FROM message_last_to_client WHERE id_user=%s"
                             cursor.execute(sql,(id_user))
                             result_msg_no_enviados = cursor.fetchall()
-                            for  dicc_msg in enumerate(result_msg_no_enviados):
+                            for  i, dicc_msg in enumerate(result_msg_no_enviados):
                                 last_message = dicc_msg["message"]
                                 id_last = dicc_msg["id"]
                                 client.send_message(        
@@ -554,7 +554,7 @@ class WhatsAppWrapper:
                                 phone_number=phone_number,
                             )
 
-                            msgADNMIN ="USUARIO NUMERO" + str(id_user) +" A COMENZDO A USAR MYGRAMMARBOT, PHONE" + str(phone_number)
+                            msgADNMIN ="USUARIO NUMERO: " + str(id_user) +" A COMENZDO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
                             client.send_message(        
                                 message=msgADNMIN,
                                 phone_number=phone_admin,
