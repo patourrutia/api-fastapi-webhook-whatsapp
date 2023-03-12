@@ -105,7 +105,7 @@ def msgayuda():
     msg = msg + "      Ej:Buen trabajo🇺🇸\n"
     msg = msg + "☑️Ir a un nivel\n"  
     msg = msg + "      Ej: N5 (Va al nivel 5)\n"
-    msg = msg + "☑️Ver Top 10: T\n"  
+    msg = msg + "☑️Ver Top 20: T\n"  
     msg = msg + "☑️Ver Funciones: F \n"
     
 
@@ -753,15 +753,27 @@ class WhatsAppWrapper:
          
                                 elif((opcion =='t')) :
                                     # TYPE 8
-                                    sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 10"
+
+                                    sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
                                     cursor.execute(sql)
                                     result_sentence = cursor.fetchall()
-                                    msg= " Top 10 🏆\n"
+                                   
+                                    for  i, dicc_sentence in enumerate(result_sentence):
+                                        if (str(id_user) == dicc_sentence["id"]):
+                                            position = i
+                                            break
+                                        
+                                        
+
+                                    sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
+                                    cursor.execute(sql)
+                                    result_sentence = cursor.fetchall()
+                                    msg= " Top 20 🏆\n"
                                     for  i, dicc_sentence in enumerate(result_sentence):
                                         name_whatsapp = dicc_sentence["name_whatsapp"]
                                         msg= msg + "\n🏆 "+ str(int(i) +1 )  + ".-" +name_whatsapp
                                  
-                                    
+                                    msg= msg + "\n\n Tu posicion es " + str(position)
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number,
@@ -830,11 +842,11 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    if (int(level)%25==0):
-                                        sql = "SELECT name_whatsapp FROM user ORDER BY level desc limit 10"
+                                    if (int(level)%20==0):
+                                        sql = "SELECT name_whatsapp FROM user ORDER BY level desc limit 20"
                                         cursor.execute(sql)
                                         result_sentence = cursor.fetchall()
-                                        msg= " Top 10 🏆\n"
+                                        msg= " Top 20 🏆\n"
                                         for  i, dicc_sentence in enumerate(result_sentence):
                                             name_whatsapp = dicc_sentence["name_whatsapp"]
                                             msg= msg + "\n🏆 "+ str(int(i) +1 )  + ".-" +name_whatsapp
