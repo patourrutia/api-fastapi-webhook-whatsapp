@@ -327,9 +327,9 @@ class WhatsAppWrapper:
         
         messages =   changes.get("messages")
         if messages:
-            print("FROM CLIENTE")
-            print("FROM CLIENTE")
-            print(changes)
+            #print("FROM CLIENTE")
+            #print("FROM CLIENTE")
+            #print(changes)
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
             idmsg = data['entry'][0]['changes'][0]['value']['messages'][0]['id']
@@ -965,7 +965,7 @@ class WhatsAppWrapper:
                               phone_number=phone_number,
                               url_image=url_image
                             )
-                            print("imagen enviada" +  str(response))
+                            #print("imagen enviada" +  str(response))
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             
                             
@@ -1019,12 +1019,12 @@ class WhatsAppWrapper:
             #print("NO SON MENSAJES DE CLIENTE...")
             # print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
             # print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
-            print("FROM FACEBOOK")
-            print("FROM FACEBOOK")
-            print(changes)
+            #print("FROM FACEBOOK")
+            #print("FROM FACEBOOK")
+            #print(changes)
             if (data['entry'][0]['changes'][0]['value']['statuses'][0]['status']=="failed"):
-                print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
-                print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
+                #print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
+                #print("NUMBER" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']))
                 phone_number = data['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id']
                 client = WhatsAppWrapper() 
                 client.send_template_message("pregunta_envio_mensajes", phone_number)
