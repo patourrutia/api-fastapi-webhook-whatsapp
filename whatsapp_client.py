@@ -387,10 +387,7 @@ class WhatsAppWrapper:
                                 sql = "DELETE FROM message_last_to_client WHERE id={var1}".format(var1=id_last)   
 
                                 cursor.execute(sql)
-                                connection.commit()
-
-                        
-                        
+                                connection.commit() 
 
 
                         opcion = ""
