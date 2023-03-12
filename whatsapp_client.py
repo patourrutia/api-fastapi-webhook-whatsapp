@@ -759,12 +759,12 @@ class WhatsAppWrapper:
                                     result_sentence = cursor.fetchall()
                                    
                                     for  i, dicc_sentence in enumerate(result_sentence):
-                                        print(str(id_user) +" - " + str(dicc_sentence["id"]))
+                                       #print(str(id_user) +" - " + str(dicc_sentence["id"]))
                                         if (str(id_user) == str(dicc_sentence["id"])):
                                             position = i
                                             break
                                         
-                                    position =1000   
+                                      
 
                                     sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                     cursor.execute(sql)
