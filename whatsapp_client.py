@@ -855,7 +855,7 @@ class WhatsAppWrapper:
                                     )
 
                                     if (int(level)%20==0):
-                                        sql = "SELECT name_whatsapp FROM user ORDER BY level desc limit 20"
+                                        sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                         cursor.execute(sql)
                                         result_sentence = cursor.fetchall()
                                         msg= " Top 20 🏆\n"
