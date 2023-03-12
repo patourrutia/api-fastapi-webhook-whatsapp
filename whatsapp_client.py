@@ -206,10 +206,10 @@ class WhatsAppWrapper:
                     "text": message
                 },
                 "footer": {
-                    "text": "\nElije la opcioncorrecta"
+                    "text": "\nElije la opcion correcta"
                 },
                 "action": {
-                    "button": "Traduccion",
+                    "button": "Ver_Traduccion_Español",
                     "sections": [
                         {
                             "title": " ",
