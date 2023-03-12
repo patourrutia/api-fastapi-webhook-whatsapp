@@ -91,7 +91,7 @@ def envia_ultima_sentencia(curs,lev,number):
     client.send_message2(
         message=message,
         phone_number=number,
-        trans =traslate_sentence[0:65]
+        trans =traslate_sentence[0:70]
     )
 
 
