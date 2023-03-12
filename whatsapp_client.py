@@ -206,10 +206,10 @@ class WhatsAppWrapper:
                     "text": message
                 },
                 "footer": {
-                    "text": "\nChoose the correct option"
+                    "text": "\nElije la opcion correcta"
                 },
                 "action": {
-                    "button": "Translate",
+                    "button": "Ver raduccion español",
                     "sections": [
                         {
                             "title": " ",
@@ -534,18 +534,19 @@ class WhatsAppWrapper:
                                 message="¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por un día. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
                                 phone_number=phone_number,
                             )
+                            msg = msgayuda()
                             client.send_message(        
                                 message="¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
                                 phone_number=phone_number,
                             )
                             
-                            msg = msgayuda()
+                           
                             client.send_message(        
                                 message=msg,
                                 phone_number=phone_number,
                             )
 
-                            msgADNMIN ="USUARIO NUMERO: " + str(id_user) +" A COMENZDO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
+                            msgADNMIN ="USUARIO NUMERO: " + str(id_user) +" A COMENZO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
                             client.send_message(        
                                 message=msgADNMIN,
                                 phone_number=phone_admin,
