@@ -522,7 +522,7 @@ class WhatsAppWrapper:
                                 nombre= respuesta_cliente
                                 
                             ahora = datetime.datetime.now()
-                            manana = ahora + datetime.timedelta(days=1)
+                            manana = ahora + datetime.timedelta(days=3)
                             date_expired = manana.strftime("%Y-%m-%d %H:%M:%S")                            
                             date_actual = datetime.datetime.now()   
                             date_last_conexion = date_actual.strftime("%Y-%m-%d %H:%M:%S")
@@ -531,7 +531,7 @@ class WhatsAppWrapper:
                             connection.commit()
                             
                             client.send_message(        
-                                message="¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por un día. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
+                                message="¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por tres días. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
                                 phone_number=phone_number,
                             )
                             msg = msgayuda()
@@ -1042,7 +1042,7 @@ class WhatsAppWrapper:
                             )
 
                             client.send_message(        
-                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita durante un día? Si es así, por favor, compártenos tu nombre para que podamos registrarte en nuestro sistema y así puedas comenzar a disfrutar de todo lo que tenemos para ofrecer.",
+                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita durante tres días? Si es así, por favor, compártenos tu nombre para que podamos registrarte en nuestro sistema y así puedas comenzar a disfrutar de todo lo que tenemos para ofrecer.",
                                 phone_number=phone_number
                             )
                            
