@@ -393,11 +393,11 @@ class WhatsAppWrapper:
                         opcion = ""
                         data_respuesta = ""
                         
-                        if (phone_number =="56952244429"):
-                            if((text[0:4].lower()=="foto")):
-                                mod = int(text[4:5])
-                                data_respuesta = text[5:]  
-                                opcion ="foto"
+                        # if (phone_number =="56952244429"):
+                        #     if((text[0:4].lower()=="foto")):
+                        #         mod = int(text[4:5])
+                        #         data_respuesta = text[5:]  
+                        #         opcion ="foto"
 
                         if (modo==4):
                             #pagar  mensaje_no_valido
@@ -417,6 +417,10 @@ class WhatsAppWrapper:
                                     mod = int(text[4:5])
                                     data_respuesta = text[5:]  
                                     opcion ="modo"
+                                elif((text[0:4].lower()=="foto")):
+                                    mod = int(text[4:5])
+                                    data_respuesta = text[5:]  
+                                    opcion ="foto"
                          
             
                                 else:
