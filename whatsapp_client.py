@@ -418,8 +418,8 @@ class WhatsAppWrapper:
                                     data_respuesta = text[5:]  
                                     opcion ="modo"
                                 elif((text[0:4].lower()=="foto")):
-                                    mod = int(text[4:5])
-                                    data_respuesta = text[5:]  
+                                    # mod = int(text[4:5])
+                                    # data_respuesta = text[5:]  
                                     opcion ="foto"
                          
             
