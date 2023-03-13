@@ -410,6 +410,10 @@ class WhatsAppWrapper:
                                     mod = int(text[4:5])
                                     data_respuesta = text[5:]  
                                     opcion ="modo"
+                                elif((text[0:4].lower()=="foto")):
+                                    mod = int(text[4:5])
+                                    data_respuesta = text[5:]  
+                                    opcion ="foto"
             
                                 else:
                                     #NO HACE NADA
@@ -605,6 +609,7 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
+                                
                                 elif(opcion =='modo'):
                                     
                                     #print("PAGAR " + data_opcion_pagar) # TYPE 4
@@ -650,6 +655,7 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
+                                        
                                 elif(opcion =='pagar'):
                                     
                                     #print("PAGAR " + data_opcion_pagar) # TYPE 4
@@ -702,6 +708,21 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
+                                elif((opcion =='foto')) :
+                                    #TYPE 5
+                                    msg = "\n\n"
+                                    client.send_message(        
+                                        message=msg,
+                                        phone_number=phone_number
+                                    )
+               
+                                    envia_ultima_sentencia(cursor,level,phone_number)
+                                    msg = "\n\n"
+                                    client.send_message(        
+                                        message=msg,
+                                        phone_number=phone_number
+                                    )
+                                    
                                 elif((opcion =='nivel_no_numeric')) :
                                     #TYPE 5
                                     msg = "El nivel ingresado({var1}) no es un numero".format(var1=str(data_respuesta))
