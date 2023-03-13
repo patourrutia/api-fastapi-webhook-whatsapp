@@ -720,7 +720,7 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
-                                elif((opcion =='dada')) :
+                                elif((opcion =='nada')) :
                                     pass
                                 elif((opcion =='foto')) :
                                     #TYPE 5
