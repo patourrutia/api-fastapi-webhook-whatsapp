@@ -398,6 +398,10 @@ class WhatsAppWrapper:
                                 # mod = int(text[4:5])
                                 # data_respuesta = text[5:]  
                                 opcion ="foto"
+                            elif((text[0:4].lower()=="nada")):
+                                # mod = int(text[4:5])
+                                # data_respuesta = text[5:]  
+                                opcion ="nada"
 
                         if (modo==4):
                             #pagar  mensaje_no_valido
@@ -716,16 +720,18 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
+                                elif((opcion =='dada')) :
+                                    pass
                                 elif((opcion =='foto')) :
                                     #TYPE 5
-                                    print("Foto")
+                                    # print("Foto")
                
                                     envia_ultima_sentencia(cursor,level,phone_number)
-                                    msg = "\n\n\n\n\n\n\n\n"
-                                    client.send_message(        
-                                        message=msg,
-                                        phone_number=phone_number
-                                    )
+                                    # msg = "\n\n\n\n\n\n\n\n"
+                                    # client.send_message(        
+                                    #     message=msg,
+                                    #     phone_number=phone_number
+                                    # )
 
                                     
                                 elif((opcion =='nivel_no_numeric')) :
