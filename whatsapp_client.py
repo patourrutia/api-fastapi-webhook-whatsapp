@@ -1042,7 +1042,7 @@ class WhatsAppWrapper:
                             )
 
                             client.send_message(        
-                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp? Si es así, por favor, ¿podrías proporcionarnos tu nombre para poder empezar a enviar los ejercicios?",
+                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp? Si es así, por favor, ¿podrías proporcionarnos tu nombre?",
                                 phone_number=phone_number
                             )
                            
