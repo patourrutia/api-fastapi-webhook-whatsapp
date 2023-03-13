@@ -718,18 +718,10 @@ class WhatsAppWrapper:
                                         )
                                 elif((opcion =='foto')) :
                                     #TYPE 5
-                                    msg = "\n\n"
-                                    client.send_message(        
-                                        message=msg,
-                                        phone_number=phone_number
-                                    )
+                                    print("Foto")
                
                                     envia_ultima_sentencia(cursor,level,phone_number)
-                                    msg = "\n\n"
-                                    client.send_message(        
-                                        message=msg,
-                                        phone_number=phone_number
-                                    )
+
                                     
                                 elif((opcion =='nivel_no_numeric')) :
                                     #TYPE 5
