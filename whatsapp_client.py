@@ -393,11 +393,11 @@ class WhatsAppWrapper:
                         opcion = ""
                         data_respuesta = ""
                         
-                        # if (phone_number =="56952244429"):
-                        #     if((text[0:4].lower()=="foto")):
-                        #         mod = int(text[4:5])
-                        #         data_respuesta = text[5:]  
-                        #         opcion ="foto"
+                        if (phone_number =="56952244429"):
+                            if((text[0:4].lower()=="foto")):
+                                # mod = int(text[4:5])
+                                # data_respuesta = text[5:]  
+                                opcion ="foto"
 
                         if (modo==4):
                             #pagar  mensaje_no_valido
@@ -417,10 +417,10 @@ class WhatsAppWrapper:
                                     mod = int(text[4:5])
                                     data_respuesta = text[5:]  
                                     opcion ="modo"
-                                elif((text[0:4].lower()=="foto")):
-                                    # mod = int(text[4:5])
-                                    # data_respuesta = text[5:]  
-                                    opcion ="foto"
+                                # elif((text[0:4].lower()=="foto")):
+                                #     # mod = int(text[4:5])
+                                #     # data_respuesta = text[5:]  
+                                #     opcion ="foto"
                          
             
                                 else:
@@ -721,6 +721,11 @@ class WhatsAppWrapper:
                                     print("Foto")
                
                                     envia_ultima_sentencia(cursor,level,phone_number)
+                                    msg = "\n\n\n\n\n\n\n\n"
+                                    client.send_message(        
+                                        message=msg,
+                                        phone_number=phone_number
+                                    )
 
                                     
                                 elif((opcion =='nivel_no_numeric')) :
