@@ -398,7 +398,7 @@ class WhatsAppWrapper:
                                 # mod = int(text[4:5])
                                 # data_respuesta = text[5:]  
                                 opcion ="foto"
-                            elif((text[0:4].lower()=="nada")):
+                            elif((text[0:4].lower()==".")):
                                 # mod = int(text[4:5])
                                 # data_respuesta = text[5:]  
                                 opcion ="nada"
@@ -720,7 +720,7 @@ class WhatsAppWrapper:
                                             message="❌ ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
-                                elif((opcion =='.')) :
+                                elif((opcion =='nada')) :
                                     pass
                                 elif((opcion =='foto')) :
                                     #TYPE 5
