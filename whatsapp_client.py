@@ -720,7 +720,7 @@ class WhatsAppWrapper:
                                             message="ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
-                                elif((opcion =='nada')) :
+                                elif((opcion =='.')) :
                                     pass
                                 elif((opcion =='foto')) :
                                     #TYPE 5
@@ -879,7 +879,7 @@ class WhatsAppWrapper:
                                     sql = "SELECT message FROM message_respuestas_correcto WHERE active= 1 and id=%s"
                                     cursor.execute(sql,(random_number))
                                     result_message1 = cursor.fetchone()
-                                    message_correcto = result_message1["message"]
+                                    message_correcto = "👍 " + result_message1["message"]
                                                                     
                                     client.send_message(        
                                         message=message_correcto,
@@ -936,7 +936,7 @@ class WhatsAppWrapper:
                                     sql = "SELECT * FROM message_respuestas_incorrecto WHERE active= 1 and id=%s"
                                     cursor.execute(sql,(random_number))
                                     result_message2 = cursor.fetchone()
-                                    message_incorrecto = result_message2["message"]
+                                    message_incorrecto = "❌ " + result_message2["message"]
                                     client.send_message(        
                                         message=message_incorrecto,
                                         phone_number=phone_number,
