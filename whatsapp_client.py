@@ -547,12 +547,12 @@ class WhatsAppWrapper:
                             connection.commit()
                             
                             client.send_message(        
-                                message="¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por tres días. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
+                                message="✅¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por tres días. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
                                 phone_number=phone_number,
                             )
                             msg = msgayuda()
                             client.send_message(        
-                                message="¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
+                                message="✅ ¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
                                 phone_number=phone_number,
                             )
                             
@@ -562,7 +562,7 @@ class WhatsAppWrapper:
                                 phone_number=phone_number,
                             )
 
-                            msgADNMIN ="USUARIO NUMERO: " + str(id_user) +" A COMENZO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
+                            msgADNMIN ="✅ USUARIO NUMERO: " + str(id_user) +" A COMENZO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
                             client.send_message(        
                                 message=msgADNMIN,
                                 phone_number=phone_admin,
@@ -609,7 +609,7 @@ class WhatsAppWrapper:
                                         #print("mensaje_no_valido" + response)
                                      
                                         client.send_message(        
-                                            message="MENSAJE RESPONDIDO",
+                                            message="✅ MENSAJE RESPONDIDO",
                                             phone_number=phone_number
                                         )
 
@@ -618,7 +618,7 @@ class WhatsAppWrapper:
 
                                     else:
                                         client.send_message(        
-                                            message="ERROR- USUARIO NO REGISTRADO",
+                                            message="❌ ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
                                 
@@ -645,7 +645,7 @@ class WhatsAppWrapper:
                                         connection.commit()
 
                                         client.send_message(        
-                                            message="CAMBIO MODO ACEPTADO",
+                                            message="✅ CAMBIO MODO ACEPTADO",
                                             phone_number=phone_number
                                         )
                                         if (mod == 1):
@@ -656,7 +656,7 @@ class WhatsAppWrapper:
                                             modito = "GRAMMAR Y CHATGPT"
 
                                         client.send_message(        
-                                            message="El cambio de modo se ha realizado exitosamente. Ahora estás en el modo: " +modito,
+                                            message="✅ El cambio de modo se ha realizado exitosamente. Ahora estás en el modo: " +modito,
                                             phone_number=data_respuesta
                                         )
                                         envia_ultima_sentencia(cursor,level,data_respuesta)
@@ -664,7 +664,7 @@ class WhatsAppWrapper:
 
                                     else:
                                         client.send_message(        
-                                            message="ERROR- USUARIO NO REGISTRADO",
+                                            message="❌ ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
                                         
@@ -705,11 +705,11 @@ class WhatsAppWrapper:
                                         connection.commit()
 
                                         client.send_message(        
-                                            message="PAGO ACEPTADO",
+                                            message="💳 👍 PAGO ACEPTADO",
                                             phone_number=phone_number
                                         )
                                         client.send_message(        
-                                            message="¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_clien_str,
+                                            message="💳 👍¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_clien_str,
                                             phone_number=data_respuesta
                                         )
                                         envia_ultima_sentencia(cursor,level,data_respuesta)
@@ -717,7 +717,7 @@ class WhatsAppWrapper:
 
                                     else:
                                         client.send_message(        
-                                            message="ERROR- USUARIO NO REGISTRADO",
+                                            message="❌ ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
                                 elif((opcion =='.')) :
@@ -736,7 +736,7 @@ class WhatsAppWrapper:
                                     
                                 elif((opcion =='nivel_no_numeric')) :
                                     #TYPE 5
-                                    msg = "El nivel ingresado({var1}) no es un numero".format(var1=str(data_respuesta))
+                                    msg = "❌ El nivel ingresado({var1}) no es un numero".format(var1=str(data_respuesta))
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number
@@ -745,7 +745,7 @@ class WhatsAppWrapper:
                                     almacena_respuestas(respuesta_cliente_normal,5,id_user,cursor,connection)
                                 elif((opcion =='no_permitido_mayor_15805')) :
                                     #TYPE 5
-                                    msg = "El nivel ingresado ({var1}) debe ser inferior a 15805.".format(var1=str(data_respuesta))
+                                    msg = "❌ El nivel ingresado ({var1}) debe ser inferior a 15805.".format(var1=str(data_respuesta))
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number
@@ -762,7 +762,7 @@ class WhatsAppWrapper:
                                         envia_ultima_sentencia(cursor,data_respuesta,phone_number)
                                     
                                     else:
-                                        msg = "El nivel ingresado es N{var1}, no debe ser mayor que el nivel máximo obtenido, que es N{var2}.".format(var1=str(data_respuesta),var2=str(maxlevel))
+                                        msg = "❌ El nivel ingresado es N{var1}, no debe ser mayor que el nivel máximo obtenido, que es N{var2}.".format(var1=str(data_respuesta),var2=str(maxlevel))
                                         client.send_message(        
                                             message=msg,
                                             phone_number=phone_number
@@ -817,7 +817,7 @@ class WhatsAppWrapper:
                                         if (str(id_user) == str(dicc_sentence["id"])):
                                             position = p
                                             break
-                                    msg= msg + "\n\n Tu posicion es " + str(position)
+                                    msg= msg + "\n\n 🏅Tu posicion es " + str(position)
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number,
@@ -946,13 +946,13 @@ class WhatsAppWrapper:
                   
                                 elif ((modo==1 or modo==3) and (opcion !='usar_bot') ):
                                     #print("OPCION SENTENCE RESPUESTA NOVALIDA") TYPE 14
-                                    msg = "MENSAJE_NO_VALIDO - "+str(idmsg) +"-" +phone_number + " - "+ from_name +" - " + respuesta_cliente          
+                                    msg = "❌ "+ "MENSAJE_NO_VALIDO - "+str(idmsg) +"-" +phone_number + " - "+ from_name +" - " + respuesta_cliente          
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_admin,
                                     )
                                     client.send_message(        
-                                        message="Lo siento, la opción elejida no es válida.",
+                                        message="❌ Lo siento, la opción elejida no es válida.",
                                         phone_number=phone_number,
                                     )
                                     envia_ultima_sentencia(cursor,level,phone_number)
@@ -971,11 +971,11 @@ class WhatsAppWrapper:
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola!%20¿Cuál%20es%20el%20precio%20mensual%20de%20la%20suscripción%20para%20seguir%20utilizando%20MyGrammarBot?",
+                                        message="❌ "+ "¡Hola! 👋 Lamentablemente, el período de prueba gratuita ha terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 o haga clic en el siguiente enlace para obtener más información sobre nuestros planes de suscripción. 👉 https://api.whatsapp.com/send?phone=56926249071&text=Hola!%20¿Cuál%20es%20el%20precio%20mensual%20de%20la%20suscripción%20para%20seguir%20utilizando%20MyGrammarBot?",
                                         phone_number=phone_number
                                     )
                                     almacena_respuestas(respuesta_cliente_normal,16,id_user,cursor,connection)
-                                    msg = "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    msg = "❌ "+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                                     client.send_message(    
                                             message=msg,
                                             phone_number=phone_admin
@@ -983,14 +983,14 @@ class WhatsAppWrapper:
                                 elif(status== 3):
                                     #PERIDO PAGADO EXPIRADO  TYPE 17
                                     client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071.",
+                                        message="❌ " +"¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071.",
                                         phone_number=phone_number
                                     )
                                     sql = "UPDATE user SET status= 5  WHERE id=%s" 
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     almacena_respuestas(respuesta_cliente_normal,17,id_user,cursor,connection)
-                                    msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    msg = "❌ " +"USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                                     client.send_message(    
                                             message=msg,
                                             phone_number=phone_admin
@@ -1005,7 +1005,7 @@ class WhatsAppWrapper:
                                     phone_number=phone_number
                                 )
                             almacena_respuestas(respuesta_cliente_normal,18,id_user,cursor,connection)
-                            msg = "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            msg = "❌ "+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
@@ -1014,7 +1014,7 @@ class WhatsAppWrapper:
                         elif(status== 5 ):
                             #OTRO ESTADO 5  TYPE 19
                             client.send_message(        
-                                        message="¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 ",
+                                        message="❌ "+ "¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 ",
                                         phone_number=phone_number
                             )
                             msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
@@ -1074,7 +1074,7 @@ class WhatsAppWrapper:
                             )
 
                             client.send_message(        
-                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp? Si es así, por favor, ¿podrías proporcionarnos tu nombre?",
+                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp❓ Si es así, por favor, ¿podrías proporcionarnos tu nombre❓",
                                 phone_number=phone_number
                             )
                            
