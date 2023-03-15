@@ -74,6 +74,25 @@ def revisa_contrnido(contenido):
         return True
 def envia_ultima_sentencia(curs,lev,number):
    
+    # sql = "SELECT sentence,correct_option, complete_sentence,traslate_sentence FROM sentence WHERE id=%s"
+    # curs.execute(sql,(lev))
+    # result_sentence= curs.fetchone()
+    # #correct_option = result_sentence["correct_option"].split("|")
+    # traslate_sentence = result_sentence["traslate_sentence"]
+    # sentence_actual = result_sentence["sentence"]
+    # message=sentence_actual
+    # sentence = message.split("|")
+    # msg = '*N' + sentence[0] + '* \n '
+    # for s in range(1,len(sentence)):
+    #     msg = msg + '\n👉 *' + sentence[s]              
+    # message = msg + "\n"  
+        
+    # client = WhatsAppWrapper()   
+    # client.send_message2(
+    #     message=message,
+    #     phone_number=number,
+    #     trans =traslate_sentence[0:70]
+    # )
     sql = "SELECT sentence,correct_option, complete_sentence,traslate_sentence FROM sentence WHERE id=%s"
     curs.execute(sql,(lev))
     result_sentence= curs.fetchone()
@@ -82,16 +101,16 @@ def envia_ultima_sentencia(curs,lev,number):
     sentence_actual = result_sentence["sentence"]
     message=sentence_actual
     sentence = message.split("|")
-    msg = '*N' + sentence[0] + '* \n '
+    msg = '*🇪🇸N' + traslate_sentence[0:70] + '* \n '
+    msg = '*🇺🇸N' + sentence[0] + '* \n '
     for s in range(1,len(sentence)):
         msg = msg + '\n👉 *' + sentence[s]              
     message = msg + "\n"  
         
     client = WhatsAppWrapper()   
-    client.send_message2(
+    client.send_message(
         message=message,
-        phone_number=number,
-        trans =traslate_sentence[0:70]
+        phone_number=number
     )
 
 
