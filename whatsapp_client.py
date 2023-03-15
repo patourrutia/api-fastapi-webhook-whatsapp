@@ -103,7 +103,7 @@ def envia_ultima_sentencia(curs,lev,number):
     sentence = message.split("|")
 
 
-    msg = '██▒▒▒▒▒▒▒▒▒▒\n*🇪🇸N' + traslate_sentence[0:70] + '* \n '
+    msg = '██▒▒▒▒▒▒▒▒▒▒\n*🇪🇸N' + traslate_sentence[0:70] + '* \n'
     msg = msg + '*🇺🇸N' + sentence[0] + '*  '
     for s in range(1,len(sentence)):
         msg = msg + '\n    👉 *' + sentence[s]              
