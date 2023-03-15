@@ -106,7 +106,7 @@ def envia_ultima_sentencia(curs,lev,number):
     msg = '██▒▒▒▒▒▒▒▒▒▒\n*🇪🇸N' + traslate_sentence[0:70] + '* \n '
     msg = msg + '*🇺🇸N' + sentence[0] + '*  '
     for s in range(1,len(sentence)):
-        msg = msg + '\n👉 *' + sentence[s]              
+        msg = msg + '\n      👉 *' + sentence[s]              
     msg = msg + "\n"  
     message = msg + "_Elije la opcion correcta_" 
 
