@@ -104,7 +104,7 @@ def envia_ultima_sentencia(curs,lev,number):
 
 
     msg = '\n*🇪🇸N' + traslate_sentence[0:70] + '* \n\n'
-    msg = msg + '*🇺🇸N' + sentence[0].replace("...","________") + '*  \n'
+    msg = msg + '*🇺🇸N' + sentence[0].replace("...","_______") + '*  \n'
     for s in range(1,len(sentence)):
         msg = msg + '\n    👉 *' + sentence[s]              
     msg = msg + "\n\n"  
