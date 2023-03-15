@@ -108,7 +108,7 @@ def envia_ultima_sentencia(curs,lev,number):
     for s in range(1,len(sentence)):
         msg = msg + '\n    👉 *' + sentence[s]              
     msg = msg + "\n\n"  
-    message = msg + "☘️_Elije la opcion correcta_" 
+    message = msg + "_☘️Elije la opcion correcta_" 
 
         
     client = WhatsAppWrapper()   
