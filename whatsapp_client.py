@@ -101,11 +101,15 @@ def envia_ultima_sentencia(curs,lev,number):
     sentence_actual = result_sentence["sentence"]
     message=sentence_actual
     sentence = message.split("|")
-    msg = '*🇪🇸N' + traslate_sentence[0:70] + '* \n '
-    msg = '*🇺🇸N' + sentence[0] + '* \n '
+
+
+    msg = '██▒▒▒▒▒▒▒▒▒▒\n*🇪🇸N' + traslate_sentence[0:70] + '* \n '
+    msg = msg + '*🇺🇸N' + sentence[0] + '*  '
     for s in range(1,len(sentence)):
         msg = msg + '\n👉 *' + sentence[s]              
-    message = msg + "\n"  
+    msg = msg + "\n"  
+    message = msg + "_Elije la opcion correcta_" 
+
         
     client = WhatsAppWrapper()   
     client.send_message(
