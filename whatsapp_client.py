@@ -971,7 +971,7 @@ class WhatsAppWrapper:
                                     envia_ultima_sentencia(cursor,level,phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,13,id_user,cursor,connection)
                   
-                                elif ((modo==1 or modo==3) and (opcion !='usar_bot') ):
+                                elif ((modo==1 or modo==3) and (opcion !='usar_bot') and status!=1 ):
                                     #print("OPCION SENTENCE RESPUESTA NOVALIDA") TYPE 14
                                     msg = "❌ "+ "MENSAJE_NO_VALIDO - "+str(idmsg) +"-" +phone_number + " - "+ from_name +" - " + respuesta_cliente          
                                     client.send_message(        
