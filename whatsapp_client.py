@@ -1106,7 +1106,7 @@ class WhatsAppWrapper:
                             # )
 
                             client.send_message(        
-                                message="✨ Hola👋, soy GrammarBot, tu asistente virtual que te ayuda a mejorar tu gramática y enriquecer tu vocabulario en inglés a través de WhatsApp. Simplemente dime tu nombre para empezar.",
+                                message="✨ Hola👋, soy GrammarBot, diseñado para ayudarte a mejorar tu gramática y enriquecer tu vocabulario en inglés a través de WhatsApp. Solo dime tu nombre para comenzar.",
                                 phone_number=phone_number
                             )
                            
