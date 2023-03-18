@@ -595,8 +595,8 @@ class WhatsAppWrapper:
                                 phone_number=phone_admin,
                             )
                             #time.sleep(10)
-                            # envia_ultima_sentencia(cursor,level,phone_number)
-                            # almacena_respuestas(respuesta_cliente_normal,2,id_user,cursor,connection)
+                            envia_ultima_sentencia(cursor,level,phone_number)
+                            almacena_respuestas(respuesta_cliente_normal,2,id_user,cursor,connection)
                         elif(status== 2 or status== 3 ):
                             date_actual = datetime.datetime.now()              
                             date_expired = datetime.datetime.strptime(str(date_expired), '%Y-%m-%d %H:%M:%S')
