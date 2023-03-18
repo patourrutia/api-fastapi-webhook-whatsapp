@@ -589,7 +589,7 @@ class WhatsAppWrapper:
                             #     phone_number=phone_number,
                             # )
 
-                            msgADNMIN ="✅ USUARIO NUMERO: " + str(id_user) +" A COMENZO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
+                            msgADNMIN ="✅ PHONE: " + str(phone_number) + " NAME: " +from_name + "  USUARIO NUMERO: " + str(id_user) +" A COMENENZADO A USAR MYGRAMMARBOT"
                             client.send_message(        
                                 message=msgADNMIN,
                                 phone_number=phone_admin,
@@ -971,7 +971,7 @@ class WhatsAppWrapper:
                                     envia_ultima_sentencia(cursor,level,phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,13,id_user,cursor,connection)
                   
-                                elif ((modo==1 or modo==3) and (opcion !='usar_bot') and status!=1 ):
+                                elif ((modo==1 or modo==3) and (opcion !='usar_bot') ):
                                     #print("OPCION SENTENCE RESPUESTA NOVALIDA") TYPE 14
                                     msg = "❌ "+ "MENSAJE_NO_VALIDO - "+str(idmsg) +"-" +phone_number + " - "+ from_name +" - " + respuesta_cliente          
                                     client.send_message(        
@@ -1002,7 +1002,7 @@ class WhatsAppWrapper:
                                         phone_number=phone_number
                                     )
                                     almacena_respuestas(respuesta_cliente_normal,16,id_user,cursor,connection)
-                                    msg = "❌ "+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    msg = "❌❌"+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                                     client.send_message(    
                                             message=msg,
                                             phone_number=phone_admin
@@ -1017,7 +1017,7 @@ class WhatsAppWrapper:
                                     cursor.execute(sql, (id_user))
                                     connection.commit()
                                     almacena_respuestas(respuesta_cliente_normal,17,id_user,cursor,connection)
-                                    msg = "❌ " +"USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                                    msg = "❌❌❌ " +"USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                                     client.send_message(    
                                             message=msg,
                                             phone_number=phone_admin
@@ -1032,7 +1032,7 @@ class WhatsAppWrapper:
                                     phone_number=phone_number
                                 )
                             almacena_respuestas(respuesta_cliente_normal,18,id_user,cursor,connection)
-                            msg = "❌ "+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            msg = "❌❌ "+ "USUARIO INTENTANDO ACCEDER CON PERIDO PRUEBA CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
                             client.send_message(    
                                     message=msg,
                                     phone_number=phone_admin
@@ -1041,7 +1041,7 @@ class WhatsAppWrapper:
                         elif(status== 5 ):
                             #OTRO ESTADO 5  TYPE 19
                             client.send_message(        
-                                        message="❌ "+ "¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 ",
+                                        message="❌❌❌ "+ "¡Hola! 👋 Lamentablemente, su suscripción ha finalizado terminado. Si deseas seguir disfrutando de nuestro servicio, te recomendamos que te pongas en contacto con nosotros a través de WhatsApp al siguiente número: +56926249071 ",
                                         phone_number=phone_number
                             )
                             msg = "USUARIO INTENTANDO ACCEDER CON SUCCRIPCION CADUCADA - " + phone_number + " - " + from_name + " - " + respuesta_cliente
@@ -1074,11 +1074,11 @@ class WhatsAppWrapper:
                             
                             
                            
-                            msg = "USUARIO INTENTANDO ACCEDER SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
-                            client.send_message(    
-                                    message=msg,
-                                    phone_number=phone_admin
-                                )
+                            # msg = "USUARIO INTENTANDO ACCEDER SIN ESTAR REGISTRADO - " + phone_number + " - " + from_name + " - " + respuesta_cliente
+                            # client.send_message(    
+                            #         message=msg,
+                            #         phone_number=phone_admin
+                            #     )
                             #almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
                             # client.send_message(        
