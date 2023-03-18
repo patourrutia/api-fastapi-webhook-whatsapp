@@ -584,10 +584,10 @@ class WhatsAppWrapper:
                             )
                             
                            
-                            client.send_message(        
-                                message=msg,
-                                phone_number=phone_number,
-                            )
+                            # client.send_message(        
+                            #     message=msg,
+                            #     phone_number=phone_number,
+                            # )
 
                             msgADNMIN ="✅ USUARIO NUMERO: " + str(id_user) +" A COMENZO A USAR MYGRAMMARBOT, PHONE: " + str(phone_number)
                             client.send_message(        
