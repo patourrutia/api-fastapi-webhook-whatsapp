@@ -569,13 +569,17 @@ class WhatsAppWrapper:
                             cursor.execute(sql)
                             connection.commit()
                             
+                            # client.send_message(        
+                            #     message="✅¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por tres días.",
+                            #     phone_number=phone_number,
+                            # )
+                            # msg = msgayuda()
+                            # client.send_message(        
+                            #     message="✅ ¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
+                            #     phone_number=phone_number,
+                            # )
                             client.send_message(        
-                                message="✅¡Registro exitoso! Desde de ahora, podrás disfrutar de nuestro servicio gratuito por tres días. Si tienes alguna duda o consulta, no dudes en comunicarte con nosotros a través de WhatsApp al +56926249071 ",
-                                phone_number=phone_number,
-                            )
-                            msg = msgayuda()
-                            client.send_message(        
-                                message="✅ ¡Es hora de comenzar con los ejercicios interactivos de gramática! ¡Siéntete cómodo y prepárate para mejorar tus habilidades en inglés! 💪 ¡Buena suerte! 👋 ",
+                                message="✅ ¡Registro exitoso! desde de ahora, disfruta de nuestro servicio gratuito por tres días. ¡Es momento de comenzar con los ejercicios interactivos de gramática! 💪 ¡Buena suerte! 👋",
                                 phone_number=phone_number,
                             )
                             
@@ -1059,11 +1063,11 @@ class WhatsAppWrapper:
                         else:
                              # TYPE 1
                             id_user  = 1
-                            url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
-                            response =   await  client.send_message_image(
-                              phone_number=phone_number,
-                              url_image=url_image
-                            )
+                            # url_image= "https://app.idealsoft.cloud/grammarbot.jpg"
+                            # response =   await  client.send_message_image(
+                            #   phone_number=phone_number,
+                            #   url_image=url_image
+                            # )
                             #print("imagen enviada" +  str(response))
                             almacena_respuestas(respuesta_cliente_normal,1,id_user,cursor,connection)
                             
@@ -1077,32 +1081,37 @@ class WhatsAppWrapper:
                                 )
                             #almacena_envio_msg(msg,"send",id_user,cursor,connection)
                         
-                            client.send_message(        
-                                message="👋¡Bienvenido/a! Soy tu asistente virtual y mi objetivo es ayudarte a mejorar tu inglés de manera sencilla y entretenida. Con MyGrammarBot🤖, tendrás la oportunidad de practicar gramática y enriquecer tu vocabulario en inglés.",
-                                phone_number=phone_number
-                            )
+                            # client.send_message(        
+                            #     message="👋¡Bienvenido/a! Soy tu asistente virtual y mi objetivo es ayudarte a mejorar tu inglés de manera sencilla y entretenida. Con MyGrammarBot🤖, tendrás la oportunidad de practicar gramática y enriquecer tu vocabulario en inglés.",
+                            #     phone_number=phone_number
+                            # )
 
 
                           
 
-                            client.send_message(        
-                                message="✨ Modo Grammar: el usuario puede enviar respuestas para completar oraciones gramaticalmente correctas.",
-                                phone_number=phone_number
-                            )
+                            # client.send_message(        
+                            #     message="✨ Modo Grammar: el usuario puede enviar respuestas para completar oraciones gramaticalmente correctas.",
+                            #     phone_number=phone_number
+                            # )
     
-                            client.send_message_video(  
-                                phone_number=phone_number,
-                                body ="✨Visita el siguiente enlace para ver cómo funciona el Modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
+                            # client.send_message_video(  
+                            #     phone_number=phone_number,
+                            #     body ="✨Visita el siguiente enlace para ver cómo funciona el Modo Grammar👉 https://www.youtube.com/watch?v=E-84QJFcpxQ"
 
-                            )
+                            # )
+
+                            # client.send_message(        
+                            #     message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp❓ Si es así, por favor, ¿podrías proporcionarnos tu nombre❓",
+                            #     phone_number=phone_number
+                            # )
 
                             client.send_message(        
-                                message="✨¿Te gustaría probar nuestro servicio de forma gratuita y recibir ejercicios interactivos a través de WhatsApp❓ Si es así, por favor, ¿podrías proporcionarnos tu nombre❓",
+                                message="✨ Hola👋, soy GrammarBot, tu asistente virtual que te ayuda a mejorar tu gramática y enriquecer tu vocabulario en inglés a través de WhatsApp. Simplemente dime tu nombre para empezar.",
                                 phone_number=phone_number
                             )
                            
 
-                         
+                        
                             date_actual = datetime.datetime.now()   
                             date_last_conexion = date_actual.strftime("%Y-%m-%d %H:%M:%S")
                             date_created = date_actual.strftime("%Y-%m-%d %H:%M:%S")
