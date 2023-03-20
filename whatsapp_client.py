@@ -680,16 +680,16 @@ class WhatsAppWrapper:
                                  
 
 
-                                    sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
-                                    cursor.execute(sql)
-                                    result_sentence = cursor.fetchall()
-                                    p = 0
-                                    for  i, dicc_sentence in enumerate(result_sentence):
-                                        p+=1
-                                        if (str(id_user) == str(dicc_sentence["id"])):
-                                            position = p
-                                            break
-                                    msg= msg + "\n\n 🏅Tu posicion es " + str(position)
+                                    # sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
+                                    # cursor.execute(sql)
+                                    # result_sentence = cursor.fetchall()
+                                    # p = 0
+                                    # for  i, dicc_sentence in enumerate(result_sentence):
+                                    #     p+=1
+                                    #     if (str(id_user) == str(dicc_sentence["id"])):
+                                    #         position = p
+                                    #         break
+                                    # msg= msg + "\n\n 🏅Tu posicion es " + str(position)
                                     client.send_message(        
                                         message=msg,
                                         phone_number=phone_number,
@@ -965,7 +965,7 @@ class WhatsAppWrapper:
                                             message=msg,
                                             phone_number=phone_number,
                                         )
-                                        
+
                                         sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                         cursor.execute(sql)
                                         result_sentence = cursor.fetchall()
