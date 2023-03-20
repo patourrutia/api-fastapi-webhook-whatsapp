@@ -433,6 +433,10 @@ class WhatsAppWrapper:
                                     mod = int(text[5:7] )
                                     data_respuesta = text[7:] 
                                     opcion ="pagar"
+                                elif((text[0:9].lower()=="envia_top")):
+                                    # mod = int(text[5:7] )
+                                    data_respuesta = text[9:] 
+                                    opcion ="envia_top"
                                     #print("Pagar")
                                     #print(data_respuesta)
                                 elif((text[0:17].lower()=="mensaje_no_valido")):
@@ -648,7 +652,49 @@ class WhatsAppWrapper:
                                             message="❌ ERROR- USUARIO NO REGISTRADO",
                                             phone_number=phone_number
                                         )
-                                
+                                elif((opcion =='envia_top') ) :
+                                    data_respuesta = data_respuesta.replace("+","")
+                                    data_respuesta = data_respuesta.replace(" ","")
+                                    phone_number = data_respuesta
+                                    msg = msgayuda()  
+                                    client.send_message(        
+                                        message=msg,
+                                        phone_number=phone_number,
+                                    )
+
+                                    sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
+                                    cursor.execute(sql)
+                                    result_sentence = cursor.fetchall()
+                                    msg= " Top 20 🏆\n"
+                                    for  i, dicc_sentence in enumerate(result_sentence):
+                                        name_whatsapp = dicc_sentence["name_whatsapp"]
+                                        if (int(i) == 0):
+                                                medalla ="🥇"
+                                        elif(int(i) == 1):
+                                            medalla ="🥈"
+                                        elif(int(i) == 2):
+                                            medalla ="🥉"
+                                        else:
+                                            medalla ="🏅"
+                                        msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
+                                 
+
+
+                                    sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
+                                    cursor.execute(sql)
+                                    result_sentence = cursor.fetchall()
+                                    p = 0
+                                    for  i, dicc_sentence in enumerate(result_sentence):
+                                        p+=1
+                                        if (str(id_user) == str(dicc_sentence["id"])):
+                                            position = p
+                                            break
+                                    msg= msg + "\n\n 🏅Tu posicion es " + str(position)
+                                    client.send_message(        
+                                        message=msg,
+                                        phone_number=phone_number,
+                                    )
+
                                 elif(opcion =='modo'):
                                     
                                     #print("PAGAR " + data_opcion_pagar) # TYPE 4
@@ -913,7 +959,13 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    if (int(level)%50==0):
+                                    if (int(level)%30==0):
+                                        msg = msgayuda()  
+                                        client.send_message(        
+                                            message=msg,
+                                            phone_number=phone_number,
+                                        )
+                                        
                                         sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                         cursor.execute(sql)
                                         result_sentence = cursor.fetchall()
@@ -945,6 +997,9 @@ class WhatsAppWrapper:
                                             message=msg,
                                             phone_number=phone_number,
                                         )
+
+                                        
+                                      
 
                                     if (int(level)== int(maxlevel)):   
                                         sql = "UPDATE user SET level= level +1, maxlevel= maxlevel +1   WHERE id=%s" 
