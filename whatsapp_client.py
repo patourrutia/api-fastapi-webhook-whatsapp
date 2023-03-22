@@ -565,7 +565,7 @@ class WhatsAppWrapper:
                                 nombre= respuesta_cliente
                                 
                             ahora = datetime.datetime.now()
-                            manana = ahora + datetime.timedelta(days=3)
+                            manana = ahora + datetime.timedelta(days=7)
                             date_expired = manana.strftime("%Y-%m-%d %H:%M:%S")                            
                             date_actual = datetime.datetime.now()   
                             date_last_conexion = date_actual.strftime("%Y-%m-%d %H:%M:%S")
@@ -583,7 +583,7 @@ class WhatsAppWrapper:
                             #     phone_number=phone_number,
                             # )
                             client.send_message(        
-                                message="✅ ¡Registro exitoso! desde de ahora, disfruta de nuestro servicio gratuito por tres días. ¡Es momento de comenzar con los ejercicios interactivos de gramática! 💪 ¡Buena suerte! 👋",
+                                message="✅ ¡Registro exitoso! desde de ahora, disfruta de nuestro servicio gratuito por 7 días. ¡Es momento de comenzar con los ejercicios interactivos de gramática! 💪 ¡Buena suerte! 👋",
                                 phone_number=phone_number,
                             )
                             
