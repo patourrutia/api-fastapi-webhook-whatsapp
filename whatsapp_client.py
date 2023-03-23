@@ -959,7 +959,7 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    if (int(level)%30==0):
+                                    if (int(level)%30==0 or int(level)==10):
                                         msg = msgayuda()  
                                         client.send_message(        
                                             message=msg,
