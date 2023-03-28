@@ -17,16 +17,16 @@ def call_gpt(preg):
     KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
     openai.api_key=KEY_CHATGPT
     try:
-        # completion = openai.Completion.create(engine="text-davinci-003",
-        #                                     prompt=preg,
-        #                                     max_tokens=2048)
-        completion = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages = preg,
-            temperature = 0.8
-        )
-        respuesta = completion.choices[0]['message']['content']
-        # respuesta = completion.choices[0].text
+        completion = openai.Completion.create(engine="text-davinci-002",
+                                            prompt=preg,
+                                            max_tokens=2048)
+        # completion = openai.ChatCompletion.create(
+        #     model="gpt-3.5-turbo",
+        #     messages = preg,
+        #     temperature = 0.8
+        # )
+        # respuesta = completion.choices[0]['message']['content']
+        respuesta = completion.choices[0].text
         return respuesta
     except openai.error.Timeout as e:
         #Handle timeout error, e.g. retry or log
