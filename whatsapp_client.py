@@ -19,7 +19,9 @@ def call_gpt2(preg):
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": preg}
+        {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
+        {"role": "user", "content": preg},
+        # {"role": "system", "content": preg}
      ]
     )
     # print (completion.choices[0].message["content"])
