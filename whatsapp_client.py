@@ -17,9 +17,14 @@ def call_gpt(preg):
     KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
     openai.api_key=KEY_CHATGPT
     try:
-        completion = openai.Completion.create(engine="text-davinci-002",
+        # completion = openai.Completion.create(engine="text-davinci-003",
+        #                                     prompt=preg,
+        #                                     max_tokens=2048)
+        completion = openai.Completion.create(engine="gpt-3.5-turbo-0301",
                                             prompt=preg,
                                             max_tokens=2048)
+        
+        
         # completion = openai.ChatCompletion.create(
         #     model="gpt-3.5-turbo",
         #     messages = preg,
