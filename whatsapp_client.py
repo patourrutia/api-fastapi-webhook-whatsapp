@@ -364,7 +364,7 @@ class WhatsAppWrapper:
 
                 respuesta_cliente_normal =respuesta_cliente
                 text = respuesta_cliente
-                #print(respuesta_cliente_normal)
+                print(respuesta_cliente_normal)
                 respuesta_cliente = respuesta_cliente.lower()
                 len_respuesta_cliente = len(respuesta_cliente)
                 len_respuesta_cliente_normal = len(respuesta_cliente_normal)
