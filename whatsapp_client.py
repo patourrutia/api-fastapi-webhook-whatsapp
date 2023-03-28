@@ -12,6 +12,17 @@ import requests_async
 
 
 load_dotenv()
+def call_gpt2(preg):
+    KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
+    openai.api_key=KEY_CHATGPT
+
+    completion = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "user", "content": preg}
+     ]
+    )
+    return completion.choices[0].message
 
 def call_gpt(preg):
     KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
@@ -913,7 +924,7 @@ class WhatsAppWrapper:
                                     pregunta = data_respuesta
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
          
-                                    respuesta_bot = call_gpt(pregunta)
+                                    respuesta_bot = call_gpt2(pregunta)
                                     
                                     client.send_message(        
                                     message=respuesta_bot,
