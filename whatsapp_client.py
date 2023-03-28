@@ -923,7 +923,7 @@ class WhatsAppWrapper:
                                 elif((opcion =='usar_bot') and (modo==2 or modo==3)) :
                                     pregunta = data_respuesta
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
-         
+                                    print(pregunta)
                                     respuesta_bot = call_gpt2(pregunta)
                                     
                                     client.send_message(        
