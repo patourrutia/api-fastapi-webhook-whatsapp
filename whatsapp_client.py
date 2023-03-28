@@ -19,7 +19,6 @@ def call_gpt(preg):
     try:
         completion = openai.Completion.create(engine="text-davinci-003",
                                             prompt=preg,
-                                            model="gpt-3.5-turbo",
                                             max_tokens=2048)
         respuesta = completion.choices[0].text
         return respuesta
