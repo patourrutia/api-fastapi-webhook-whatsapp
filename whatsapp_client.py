@@ -22,6 +22,7 @@ def call_gpt2(preg):
         {"role": "user", "content": preg}
      ]
     )
+    print (completion.choices[0].message)
     return completion.choices[0].message
 
 def call_gpt(preg):
