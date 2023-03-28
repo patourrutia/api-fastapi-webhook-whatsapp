@@ -25,8 +25,8 @@ def call_gpt(preg):
             messages = preg,
             temperature = 0.8
         )
-         
-        respuesta = completion.choices[0].text
+        respuesta = completion.choices[0]['message']['content']
+        # respuesta = completion.choices[0].text
         return respuesta
     except openai.error.Timeout as e:
         #Handle timeout error, e.g. retry or log
