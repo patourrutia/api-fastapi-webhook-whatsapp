@@ -17,7 +17,9 @@ def call_gpt2(preg):
     openai.api_key=KEY_CHATGPT
 
     completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
+    # model="gpt-3.5-turbo",
+    model="gpt-3.5-turbo-0301",
+    
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
         {"role": "user", "content": preg},
