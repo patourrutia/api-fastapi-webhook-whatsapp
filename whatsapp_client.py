@@ -17,11 +17,11 @@ def call_gpt2(preg):
     openai.api_key=KEY_CHATGPT
 
     completion = openai.ChatCompletion.create(
-    # model="gpt-3.5-turbo",
-    model="gpt-3.5-turbo-0301",
+    model="gpt-3.5-turbo",
+    # model="gpt-3.5-turbo-0301",
     
     messages=[
-        {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
+        {"role": "system", "content": "You are a kind helpful assistant."},
         {"role": "user", "content": preg},
         # {"role": "system", "content": preg}
      ]
@@ -928,7 +928,7 @@ class WhatsAppWrapper:
                                 elif((opcion =='usar_bot') and (modo==2 or modo==3)) :
                                     pregunta = data_respuesta
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
-                                    print(pregunta)
+                                    # print(pregunta)
                                     respuesta_bot = call_gpt2(pregunta)
                                     
                                     client.send_message(        
