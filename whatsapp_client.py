@@ -21,7 +21,7 @@ def call_gpt2(preg):
     # model="gpt-3.5-turbo-0301",
     
     messages=[
-        {"role": "system", "content": "You are a kind helpful assistant."},
+        {"role": "system", "content": "I want us to have a conversation to practice my English. Imagine that you are a seller of a vegetable store and I am the buyer."},
         {"role": "user", "content": preg},
         # {"role": "system", "content": preg}
      ]
