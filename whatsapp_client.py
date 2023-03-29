@@ -21,7 +21,7 @@ def call_gpt2(preg):
     # model="gpt-3.5-turbo-0301",
     
     messages=[
-        {"role": "system", "content": "quiero que tengamos una conversación para practicar mi ingles , imagina que eres un vendedor de una verduraria y yo soy el comprador"},
+        {"role": "system", "content": "Imagina que eres un vendedor de una verduraria y yo soy el comprador"},
         {"role": "user", "content": preg},
         # {"role": "system", "content": preg}
      ]
