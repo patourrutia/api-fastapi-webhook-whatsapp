@@ -201,7 +201,7 @@ def almacena_converzacion(msg,idus,cur,con):
     # mydate_time = date_actual.strftime("%Y-%m-%d %H:%M:00")
     # mydate = date_actual.strftime("%Y-%m-%d")
     # mytime = date_actual.strftime("%H:%M:%S")
-    sql = " INSERT INTO `converzaciones` (`id`, `text_converzacion`, `id_user`) VALUES (1, '{var1}', {var2});".format(var1=str(msg),var2=id_user)
+    sql = " INSERT INTO `converzaciones` (`id`, `text_converzacion`, `id_user`) VALUES (NULL, '{var1}', {var2});".format(var1=str(msg),var2=id_user)
     cur.execute(sql)
     con.commit()
 
