@@ -193,6 +193,17 @@ def almacena_respuestas(msg,type,idus,cur,con):
     sql = "INSERT INTO `message_from_client` (`id`, `message`, `id_type_msg`, `id_user`, `fecha_time`, `fecha`, `time`) VALUES (NULL, '{var1}', {var2}, {var3}, '{var4}', '{var5}', '{var6}');".format(var1=str(msg),var2=id_type_msg,var3=id_user,var4=str(mydate_time),var5=str(mydate),var6=str(mytime))
     cur.execute(sql)
     con.commit()
+def almacena_converzacion(msg,idus,cur,con):
+    msg = msg
+    # id_type_msg = type
+    id_user = idus
+    # date_actual = datetime.datetime.now()
+    # mydate_time = date_actual.strftime("%Y-%m-%d %H:%M:00")
+    # mydate = date_actual.strftime("%Y-%m-%d")
+    # mytime = date_actual.strftime("%H:%M:%S")
+    sql = " INSERT INTO `converzaciones` (`id`, `text_converzacion`, `id_user`) VALUES (1, '{var1}', {var2});".format(var1=str(msg),var2=id_user)
+    cur.execute(sql)
+    con.commit()
 
 def almacena_envio_msg(msg,status,idus,cur,con):
     id_user = idus
@@ -947,6 +958,8 @@ class WhatsAppWrapper:
                                     almacena_respuestas(respuesta_cliente_normal,8,id_user,cursor,connection)
                                 elif((opcion =='usar_bot') and (modo==2 or modo==3)) :
                                     pregunta = data_respuesta
+
+                                    almacena_converzacion(pregunta,id_user)
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
                                     # print(pregunta)
                                     respuesta_bot = call_gpt2(pregunta)
