@@ -12,7 +12,27 @@ import requests_async
 
 
 load_dotenv()
+def call_gpt3(preg):
+    
+    KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
+    openai.api_key=KEY_CHATGPT
+
+    completion = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    # model="gpt-3.5-turbo-0301",
+    
+    messages=[
+        {"role": "system", "content": "Imagina que eres un vendedor de una verduraria y yo soy el comprador"},
+        {"role": "user", "content": preg},
+        # {"role": "system", "content": preg}
+     ]
+    )
+    # print (completion.choices[0].message["content"])
+    return completion.choices[0].message["content"]
+
+
 def call_gpt2(preg):
+
     KEY_CHATGPT =  os.environ.get('KEY_CHATGPT')
     openai.api_key=KEY_CHATGPT
 
@@ -555,8 +575,8 @@ class WhatsAppWrapper:
                                             pass
                                             #print("#NO HACE NADA")
 
-                                elif((text[0:3].lower()=="bot") and (modo==2 or modo==3)):
-                                    data_respuesta = text[4:]  
+                                elif((modo==2 or modo==3)):
+                                    data_respuesta = text  
                                     opcion="usar_bot"
                                 
                                 elif((text[-2]=='🇺') and (modo==1 or modo==3)):
@@ -986,44 +1006,44 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    if (int(level)%30==0 or int(level)==10):
-                                        msg = msgayuda()  
-                                        client.send_message(        
-                                            message=msg,
-                                            phone_number=phone_number,
-                                        )
+                                    # if (int(level)%30==0 or int(level)==10):
+                                    #     msg = msgayuda()  
+                                    #     client.send_message(        
+                                    #         message=msg,
+                                    #         phone_number=phone_number,
+                                    #     )
 
-                                        sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
-                                        cursor.execute(sql)
-                                        result_sentence = cursor.fetchall()
-                                        msg= " Top 20 🏆\n"
-                                        for  i, dicc_sentence in enumerate(result_sentence):
-                                            name_whatsapp = dicc_sentence["name_whatsapp"]
-                                            if (int(i) == 0):
-                                                medalla ="🥇"
-                                            elif(int(i) == 1):
-                                                medalla ="🥈"
-                                            elif(int(i) == 2):
-                                                medalla ="🥉"
-                                            else:
-                                                medalla ="🏅"
-                                            msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
+                                    #     sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
+                                    #     cursor.execute(sql)
+                                    #     result_sentence = cursor.fetchall()
+                                    #     msg= " Top 20 🏆\n"
+                                    #     for  i, dicc_sentence in enumerate(result_sentence):
+                                    #         name_whatsapp = dicc_sentence["name_whatsapp"]
+                                    #         if (int(i) == 0):
+                                    #             medalla ="🥇"
+                                    #         elif(int(i) == 1):
+                                    #             medalla ="🥈"
+                                    #         elif(int(i) == 2):
+                                    #             medalla ="🥉"
+                                    #         else:
+                                    #             medalla ="🏅"
+                                    #         msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
                                         
-                                        sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
-                                        cursor.execute(sql)
-                                        result_sentence = cursor.fetchall()
-                                        p = 0
-                                        for  i, dicc_sentence in enumerate(result_sentence):
-                                            p+=1
-                                            if (str(id_user) == str(dicc_sentence["id"])):
-                                                position = p
-                                                break
-                                        msg= msg + "\n\n Tu posicion es " + str(position)
+                                    #     sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
+                                    #     cursor.execute(sql)
+                                    #     result_sentence = cursor.fetchall()
+                                    #     p = 0
+                                    #     for  i, dicc_sentence in enumerate(result_sentence):
+                                    #         p+=1
+                                    #         if (str(id_user) == str(dicc_sentence["id"])):
+                                    #             position = p
+                                    #             break
+                                    #     msg= msg + "\n\n Tu posicion es " + str(position)
 
-                                        client.send_message(        
-                                            message=msg,
-                                            phone_number=phone_number,
-                                        )
+                                    #     client.send_message(        
+                                    #         message=msg,
+                                    #         phone_number=phone_number,
+                                    #     )
 
                                         
                                       
