@@ -267,7 +267,7 @@ class WhatsAppWrapper:
         # return response.status_code
     
 
-    def send_message2(self, message, phone_number,trans):
+    def send_message2(self,  phone_number):
 
       
     
@@ -284,21 +284,32 @@ class WhatsAppWrapper:
                 },
             
                 "body": {
-                    "text": message
+                    "text": "Lista de modos disponibles"
                 },
                 "footer": {
-                    "text": "\nElije la opcion correcta"
+                    "text": "Elije el modo"
                 },
                 "action": {
-                    "button": "Ver_Traduccion_Español",
+                    "button": "Ver modos",
                     "sections": [
                         {
-                            "title": " ",
+                            "title": "LISTA DE MODOS",
                             "rows": [
                                 {
-                                    "id": "1",
-                                    "title": " ",
-                                    "description": trans
+                                    "id": "MODO-PRM ",
+                                    "title": "MODO-PRM",
+                                    "description": "Modo de preguntas de respuesta múltiple"
+                                },
+                                {
+                                    "id": "MODO-CHATGPT",
+                                    "title": "MODO-CHATGPT",
+                                    "description": "Modo de utlizacion de chatGPT"
+                                }
+                                ,
+                                {
+                                    "id": "MODO-VENDFRU",
+                                    "title": "MODO-VENDFRU",
+                                    "description": "Modo chatGPT Vendedor Verduras"
                                 }
                             ]
                         }
@@ -1240,6 +1251,14 @@ class WhatsAppWrapper:
     
 
                 connection.close()
+        
+        
+        
+            elif (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="interactive"):
+                print("es interactive")
+                if (data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['type']== 'list_reply'):
+                    print(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply'])
+                
         else:
             #print("NO SON MENSAJES DE CLIENTE...")
             # print("STATUS" +  str( data['entry'][0]['changes'][0]['value']['statuses'][0]['status']))
