@@ -961,7 +961,7 @@ class WhatsAppWrapper:
 
                                     almacena_converzacion(pregunta,id_user,cursor,connection)
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
-                                    # print(pregunta)
+                                    print(pregunta)
 
                                     
                                     respuesta_bot = call_gpt2(pregunta)
