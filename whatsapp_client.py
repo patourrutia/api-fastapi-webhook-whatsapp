@@ -414,7 +414,7 @@ class WhatsAppWrapper:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
             idmsg = data['entry'][0]['changes'][0]['value']['messages'][0]['id']
-            # print(messages)
+            print(messages)
             #print (phone_number + " - " + from_name )
             if (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="text"):
                 #print (data_json['entry'][0]['changes'][0]['value']['messages'][0]['type'])
@@ -962,6 +962,8 @@ class WhatsAppWrapper:
                                     almacena_converzacion(pregunta,id_user,cursor,connection)
                                     #print("OPCION CHATGPT Y USARIO PREGUNTA:" + pregunta) TYPE 9
                                     # print(pregunta)
+
+                                    
                                     respuesta_bot = call_gpt2(pregunta)
                                     
                                     client.send_message(        
