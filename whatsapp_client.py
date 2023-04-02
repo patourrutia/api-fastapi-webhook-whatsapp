@@ -1256,20 +1256,21 @@ class WhatsAppWrapper:
         
             elif (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="interactive"):
                 if (data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['type']== 'list_reply'):
+                    client = WhatsAppWrapper()
                     if(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-PRM'):
                         client.send_message(        
                             message="✨MODO-PRM ACTIVADO ",
                             phone_number=phone_number
                         )
-                        #print("MODO-PRM")
+                        print("MODO-PRM")
                     elif(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-CHATGPT'):
-                        #print("MODO-CHATGPT")
+                        print("MODO-CHATGPT")
                         client.send_message(        
                             message="✨MODO-CHATGPT ACTIVADO ",
                             phone_number=phone_number
                         )
                     elif(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-VENDFRU'):
-                        #print("MODO-VENDFRU")
+                        print("MODO-VENDFRU")
                         client.send_message(        
                             message="✨MODO-VENDFRU ACTIVADO ",
                             phone_number=phone_number
