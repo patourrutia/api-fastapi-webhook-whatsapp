@@ -1256,7 +1256,7 @@ class WhatsAppWrapper:
         
             elif (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="interactive"):
                 if (data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['type']== 'list_reply'):
-                    client = WhatsAppWrapper()
+                    client =  await WhatsAppWrapper()
                     print(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'])
                     if(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-PRM'):
                         client.send_message(        
