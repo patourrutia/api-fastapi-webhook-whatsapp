@@ -425,7 +425,7 @@ class WhatsAppWrapper:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
             idmsg = data['entry'][0]['changes'][0]['value']['messages'][0]['id']
-            print(messages)
+            # print(messages)
             #print (phone_number + " - " + from_name )
             if (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="text"):
                 #print (data_json['entry'][0]['changes'][0]['value']['messages'][0]['type'])
@@ -433,7 +433,7 @@ class WhatsAppWrapper:
 
                 respuesta_cliente_normal =respuesta_cliente
                 text = respuesta_cliente
-                print(respuesta_cliente_normal)
+                # print(respuesta_cliente_normal)
                 respuesta_cliente = respuesta_cliente.lower()
                 len_respuesta_cliente = len(respuesta_cliente)
                 len_respuesta_cliente_normal = len(respuesta_cliente_normal)
