@@ -1257,7 +1257,12 @@ class WhatsAppWrapper:
             elif (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="interactive"):
                 print("es interactive")
                 if (data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['type']== 'list_reply'):
-                    print(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply'])
+                    if(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-CHATGPT'):
+                        print("MODO-PRM")
+                    elif(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-CHATGPT'):
+                        print("MODO-CHATGPT")
+                    elif(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-CHATGPT'):
+                        print("MODO-VENDFRU")
                 
         else:
             #print("NO SON MENSAJES DE CLIENTE...")
