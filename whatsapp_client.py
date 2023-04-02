@@ -296,7 +296,7 @@ class WhatsAppWrapper:
                             "title": "LISTA DE MODOS",
                             "rows": [
                                 {
-                                    "id": "MODO-PRM ",
+                                    "id": "MODO-PRM",
                                     "title": "MODO-PRM",
                                     "description": "Modo de preguntas de respuesta múltiple"
                                 },
@@ -1259,12 +1259,13 @@ class WhatsAppWrapper:
                     client =  WhatsAppWrapper()
                     print(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'])
 
-                    if(str(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'])== str('MODO-PRM')):
-                        # client.send_message(        
-                        #     message="✨MODO-PRM ACTIVADO ",
-                        #     phone_number=phone_number
-                        # )
+                    if(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'] == 'MODO-PRM'):
                         print("MODO-PRM")
+                        client.send_message(        
+                            message="✨MODO-PRM ACTIVADO ",
+                            phone_number=phone_number
+                        )
+                        
                     elif(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-CHATGPT'):
                         print("MODO-CHATGPT")
                         client.send_message(        
