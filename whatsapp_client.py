@@ -1259,7 +1259,7 @@ class WhatsAppWrapper:
                     client =  WhatsAppWrapper()
                     print(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'])
 
-                    if(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id']== 'MODO-PRM'):
+                    if(str(data['entry'][0]['changes'][0]['value']['messages'][0]['interactive']['list_reply']['id'])== str('MODO-PRM')):
                         # client.send_message(        
                         #     message="✨MODO-PRM ACTIVADO ",
                         #     phone_number=phone_number
