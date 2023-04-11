@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI, Request, Response
 import os
-from whatsapp_client import WhatsAppWrapper
+from whatsapp_client2 import WhatsAppWrapper
 
 from dotenv import load_dotenv
 
