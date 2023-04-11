@@ -1,7 +1,7 @@
 import os
 from flask import Flask, jsonify,request
 from flask_cors import CORS
-from whatsapp_client import WhatsAppWrapper
+from whatsapp_client2 import WhatsAppWrapper
 import pymysql.cursors
 from dotenv import load_dotenv
 load_dotenv()

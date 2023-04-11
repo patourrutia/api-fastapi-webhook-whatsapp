@@ -425,7 +425,8 @@ class WhatsAppWrapper:
             phone_number = data['entry'][0]['changes'][0]['value']['messages'][0]['from']
             from_name = data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name']   
             idmsg = data['entry'][0]['changes'][0]['value']['messages'][0]['id']
-            # print(messages)
+            print("hola")
+            print(messages)
             #print (phone_number + " - " + from_name )
             if (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="text"):
                 #print (data_json['entry'][0]['changes'][0]['value']['messages'][0]['type'])
