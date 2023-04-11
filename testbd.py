@@ -9,8 +9,10 @@
 import datetime ,time
 import os
 
+message = "don't"
 
-
+message =   message.replace("'","\\'")
+print(message)
 
 date_actual = datetime.datetime.now()
 #$print(date_actual)
@@ -107,116 +109,116 @@ date_expired = datetime.datetime.strptime(date_expired, '%Y-%m-%d %H:%M:%S')
     # msg = msg + "☑️Ver Funciones: F \n"
 
 
-text =" Nhola como estas🇪🇸"
-modo = 3
-opcion=""
+# text =" Nhola como estas🇪🇸"
+# modo = 3
+# opcion=""
 
-if (modo==4):
-    #pagar  mensaje_no_valido
-    if((len(text)>=4)):
-        if((text[0:5].lower()=="pagar")):
-            data_respuesta = text[5:]  
-            opcion ="pagar"
-            #print("Pagar")
-            #print(data_respuesta)
-        elif((text[0:17].lower()=="mensaje_no_valido")):
-            opcion ="mensaje_no_valido"
-            data_respuesta = text[17:]
-            #print("mensaje_no_valido")
-            #print(data_respuesta)
-        else:
-            #NO HACE NADA
-            pass
-            #print("#NO HACE NADA")
-else:
-    if ((len(text)== 1) and (modo==1 or modo==3)):
-        if((text=="F") ) and (modo==1 or modo==3):
-            opcion="F"
-            #print("F")
-        elif((text=="T" )and (modo==1 or modo==3)):
-            opcion="T"
-            #print("T")
-        else:
-            #NO HACE NADA
-            pass
-            #print("#NO HACE NADA")
+# if (modo==4):
+#     #pagar  mensaje_no_valido
+#     if((len(text)>=4)):
+#         if((text[0:5].lower()=="pagar")):
+#             data_respuesta = text[5:]  
+#             opcion ="pagar"
+#             #print("Pagar")
+#             #print(data_respuesta)
+#         elif((text[0:17].lower()=="mensaje_no_valido")):
+#             opcion ="mensaje_no_valido"
+#             data_respuesta = text[17:]
+#             #print("mensaje_no_valido")
+#             #print(data_respuesta)
+#         else:
+#             #NO HACE NADA
+#             pass
+#             #print("#NO HACE NADA")
+# else:
+#     if ((len(text)== 1) and (modo==1 or modo==3)):
+#         if((text=="F") ) and (modo==1 or modo==3):
+#             opcion="F"
+#             #print("F")
+#         elif((text=="T" )and (modo==1 or modo==3)):
+#             opcion="T"
+#             #print("T")
+#         else:
+#             #NO HACE NADA
+#             pass
+#             #print("#NO HACE NADA")
 
-    elif(len(text)==2):
-        if((text[0:1]=="N" ) and (modo==1 or modo==3)):
-            if (text[1:].replace(" ","").isnumeric()):
-                opcion="NIVEL"
-                data_respuesta = text[1:].replace(" ","")  
-                #print("ESTA BIEN")
-            else:
-                #NO HACE NADA
-                pass
-                #print("MALO NO ES NUMERICO")
-        else:
-            #NO HACE NADA
-            pass
-            #print("#NO HACE NADA")
-    elif(len(text)==3):
-        if((text[0:1]=="N" ) and (modo==1 or modo==3)):
-            if (text[1:].replace(" ","").isnumeric()):
-                opcion="NIVEL"
-                data_respuesta = text[1:].replace(" ","")  
-                #print("ESTA BIEN")
-            else:
-                #NO HACE NADA
-                pass
-                #print("MALO NO ES NUMERICO")
-        else:
-            #NO HACE NADA
-            pass
-            #print("#NO HACE NADA")
+#     elif(len(text)==2):
+#         if((text[0:1]=="N" ) and (modo==1 or modo==3)):
+#             if (text[1:].replace(" ","").isnumeric()):
+#                 opcion="NIVEL"
+#                 data_respuesta = text[1:].replace(" ","")  
+#                 #print("ESTA BIEN")
+#             else:
+#                 #NO HACE NADA
+#                 pass
+#                 #print("MALO NO ES NUMERICO")
+#         else:
+#             #NO HACE NADA
+#             pass
+#             #print("#NO HACE NADA")
+#     elif(len(text)==3):
+#         if((text[0:1]=="N" ) and (modo==1 or modo==3)):
+#             if (text[1:].replace(" ","").isnumeric()):
+#                 opcion="NIVEL"
+#                 data_respuesta = text[1:].replace(" ","")  
+#                 #print("ESTA BIEN")
+#             else:
+#                 #NO HACE NADA
+#                 pass
+#                 #print("MALO NO ES NUMERICO")
+#         else:
+#             #NO HACE NADA
+#             pass
+#             #print("#NO HACE NADA")
 
-    elif(len(text)>=4):
-        if((text[0:1]=="N") and (modo==1 or modo==3)):
-            if (text[1:].replace(" ","").isnumeric()):
+#     elif(len(text)>=4):
+#         if((text[0:1]=="N") and (modo==1 or modo==3)):
+#             if (text[1:].replace(" ","").isnumeric()):
                 
-                data_respuesta = text[1:].replace(" ","")  
-                if (int(data_respuesta)<=15805):
-                    opcion="NIVEL"
-                    #print("Es Numero")
-                else:
-                    #NO HACE NADA
-                    pass
-                    #print("#NO HACE NADA")
+#                 data_respuesta = text[1:].replace(" ","")  
+#                 if (int(data_respuesta)<=15805):
+#                     opcion="NIVEL"
+#                     #print("Es Numero")
+#                 else:
+#                     #NO HACE NADA
+#                     pass
+#                     #print("#NO HACE NADA")
                 
-            else:
-                if((text[-2]=='🇺') and (modo==1 or modo==3)):
-                    opcion="TRAD_ING"
-                    data_respuesta = text[:-2]
-                    #print("TRADUCCION A INGLES")
-                elif((text[-2]=='🇪' ) and (modo==1 or modo==3)):
-                    opcion="TRAD_ESP"
-                    data_respuesta = text[:-2]
-                    #print("TRADUCCION A ESPAÑOL")
-                else:
-                    #NO HACE NADA
-                    pass
-                    #print("#NO HACE NADA")
+#             else:
+#                 if((text[-2]=='🇺') and (modo==1 or modo==3)):
+#                     opcion="TRAD_ING"
+#                     data_respuesta = text[:-2]
+#                     #print("TRADUCCION A INGLES")
+#                 elif((text[-2]=='🇪' ) and (modo==1 or modo==3)):
+#                     opcion="TRAD_ESP"
+#                     data_respuesta = text[:-2]
+#                     #print("TRADUCCION A ESPAÑOL")
+#                 else:
+#                     #NO HACE NADA
+#                     pass
+#                     #print("#NO HACE NADA")
 
-        elif((text[0:3].lower()=="bot") and (modo==2 or modo==3)):
-            data_respuesta = text[4:]  
-            opcion="usar_bot"
+#         elif((text[0:3].lower()=="bot") and (modo==2 or modo==3)):
+#             data_respuesta = text[4:]  
+#             opcion="usar_bot"
         
-        elif((text[-2]=='🇺') and (modo==1 or modo==3)):
-            opcion="trad_ing"
-            data_respuesta = text[:-2]
-            #print("TRADUCCION A INGLES")
+#         elif((text[-2]=='🇺') and (modo==1 or modo==3)):
+#             opcion="trad_ing"
+#             data_respuesta = text[:-2]
+#             #print("TRADUCCION A INGLES")
         
-        elif((text[-2]=='🇪') and (modo==1 or modo==3)):
-            opcion="trad_esp"
-            data_respuesta = text[:-2]    
-            #print("TRADUCCION A ESPAÑOL")
-        else:
-            #NO HACE NADA
-            pass
-            #print("#NO HACE NADA")
+#         elif((text[-2]=='🇪') and (modo==1 or modo==3)):
+#             opcion="trad_esp"
+#             data_respuesta = text[:-2]    
+#             #print("TRADUCCION A ESPAÑOL")
+#         else:
+#             #NO HACE NADA
+#             pass
+#             #print("#NO HACE NADA")
    
        
-print(opcion)
+# print(opcion)
 
             
     
