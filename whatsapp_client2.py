@@ -417,7 +417,7 @@ class WhatsAppWrapper:
         cursorclass=pymysql.cursors.DictCursor)
         
         
-        messages =   changes.get("messages").replace("'","\'")
+        messages =   changes.get("messages").replace("'","\\'")
         if messages:
             #print("FROM CLIENTE")
             #print("FROM CLIENTE")
