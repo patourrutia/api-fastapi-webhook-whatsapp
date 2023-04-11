@@ -482,138 +482,141 @@ class WhatsAppWrapper:
                                 connection.commit() 
 
 
+
+
                         opcion = ""
                         data_respuesta = ""
                         
-                        if (phone_number =="56952244429"):
-                            if((text[0:4].lower()=="foto")):
-                                # mod = int(text[4:5])
-                                # data_respuesta = text[5:]  
-                                opcion ="foto"
-                            elif((text[0:4].lower()==".")):
-                                # mod = int(text[4:5])
-                                # data_respuesta = text[5:]  
-                                opcion ="nada"
+                        # if (phone_number =="56952244429"):
+                        #     if((text[0:4].lower()=="foto")):
+                        #         # mod = int(text[4:5])
+                        #         # data_respuesta = text[5:]  
+                        #         opcion ="foto"
+                        #     elif((text[0:4].lower()==".")):
+                        #         # mod = int(text[4:5])
+                        #         # data_respuesta = text[5:]  
+                        #         opcion ="nada"
 
-                        if (modo==4):
-                            #pagar  mensaje_no_valido
-                            if((len(text)>=4)):
-                                if((text[0:5].lower()=="pagar")):
-                                    mod = int(text[5:7] )
-                                    data_respuesta = text[7:] 
-                                    opcion ="pagar"
-                                elif((text[0:9].lower()=="envia_top")):
-                                    # mod = int(text[5:7] )
-                                    data_respuesta = text[9:] 
-                                    opcion ="envia_top"
-                                    #print("Pagar")
-                                    #print(data_respuesta)
-                                elif((text[0:17].lower()=="mensaje_no_valido")):
-                                    opcion ="mensaje_no_valido"
-                                    data_respuesta = text[17:]
-                                    #print("mensaje_no_valido")
-                                    #print(data_respuesta)
-                                elif((text[0:4].lower()=="modo")):
-                                    mod = int(text[4:5])
-                                    data_respuesta = text[5:]  
-                                    opcion ="modo"
-                                # elif((text[0:4].lower()=="foto")):
-                                #     # mod = int(text[4:5])
-                                #     # data_respuesta = text[5:]  
-                                #     opcion ="foto"
+                        # if (modo==4):
+                        #     #pagar  mensaje_no_valido
+                        #     if((len(text)>=4)):
+                        #         if((text[0:5].lower()=="pagar")):
+                        #             mod = int(text[5:7] )
+                        #             data_respuesta = text[7:] 
+                        #             opcion ="pagar"
+                        #         elif((text[0:9].lower()=="envia_top")):
+                        #             # mod = int(text[5:7] )
+                        #             data_respuesta = text[9:] 
+                        #             opcion ="envia_top"
+                        #             #print("Pagar")
+                        #             #print(data_respuesta)
+                        #         elif((text[0:17].lower()=="mensaje_no_valido")):
+                        #             opcion ="mensaje_no_valido"
+                        #             data_respuesta = text[17:]
+                        #             #print("mensaje_no_valido")
+                        #             #print(data_respuesta)
+                        #         elif((text[0:4].lower()=="modo")):
+                        #             mod = int(text[4:5])
+                        #             data_respuesta = text[5:]  
+                        #             opcion ="modo"
+                        #         # elif((text[0:4].lower()=="foto")):
+                        #         #     # mod = int(text[4:5])
+                        #         #     # data_respuesta = text[5:]  
+                        #         #     opcion ="foto"
                          
             
-                                else:
-                                    #NO HACE NADA
-                                    pass
-                                    #print("#NO HACE NADA")
-                        else:
-                            if ((len(text)== 1) and (modo==1 or modo==3)):
-                                if((text.lower()=="f") ) and (modo==1 or modo==3):
-                                    opcion="f"
-                                    #print("F")
-                                elif((text.lower()=="t" )and (modo==1 or modo==3)):
-                                    opcion="t"
-                                    #print("T")
-                                else:
-                                    #NO HACE NADA
-                                    pass
-                                    #print("#NO HACE NADA")
+                        #         else:
+                        #             #NO HACE NADA
+                        #             pass
+                        #             #print("#NO HACE NADA")
+                        
+                        # else:
+                        #     if ((len(text)== 1) and (modo==1 or modo==3)):
+                        #         if((text.lower()=="f") ) and (modo==1 or modo==3):
+                        #             opcion="f"
+                        #             #print("F")
+                        #         elif((text.lower()=="t" )and (modo==1 or modo==3)):
+                        #             opcion="t"
+                        #             #print("T")
+                        #         else:
+                        #             #NO HACE NADA
+                        #             pass
+                        #             #print("#NO HACE NADA")
 
-                            elif(len(text)==2):
-                                if((text[0:1].lower()=="n" ) and (modo==1 or modo==3)):
-                                    if (text[1:].replace(" ","").isnumeric()):
-                                        data_respuesta = text[1:].replace(" ","")
-                                        opcion="nivel"
-                                    else:
-                                        #NO HACE NADA
-                                        opcion="nivel_no_numeric"
-                                        pass
-                                        #print("MALO NO ES NUMERICO")
-                                else:
-                                    #NO HACE NADA
-                                    pass
-                                    #print("#NO HACE NADA")
-                            elif(len(text)==3):
-                                if((text[0:1].lower()=="n" ) and (modo==1 or modo==3)):
-                                    if (text[1:].replace(" ","").isnumeric()):
-                                        data_respuesta = text[1:].replace(" ","")
-                                        opcion="nivel"        
-                                    else:
-                                        #NO HACE NADA
-                                        opcion="nivel_no_numeric"
-                                        pass
-                                        #print("MALO NO ES NUMERICO")
-                                else:
-                                    #NO HACE NADA
-                                    pass
-                                    #print("#NO HACE NADA")
+                        #     elif(len(text)==2):
+                        #         if((text[0:1].lower()=="n" ) and (modo==1 or modo==3)):
+                        #             if (text[1:].replace(" ","").isnumeric()):
+                        #                 data_respuesta = text[1:].replace(" ","")
+                        #                 opcion="nivel"
+                        #             else:
+                        #                 #NO HACE NADA
+                        #                 opcion="nivel_no_numeric"
+                        #                 pass
+                        #                 #print("MALO NO ES NUMERICO")
+                        #         else:
+                        #             #NO HACE NADA
+                        #             pass
+                        #             #print("#NO HACE NADA")
+                        #     elif(len(text)==3):
+                        #         if((text[0:1].lower()=="n" ) and (modo==1 or modo==3)):
+                        #             if (text[1:].replace(" ","").isnumeric()):
+                        #                 data_respuesta = text[1:].replace(" ","")
+                        #                 opcion="nivel"        
+                        #             else:
+                        #                 #NO HACE NADA
+                        #                 opcion="nivel_no_numeric"
+                        #                 pass
+                        #                 #print("MALO NO ES NUMERICO")
+                        #         else:
+                        #             #NO HACE NADA
+                        #             pass
+                        #             #print("#NO HACE NADA")
 
-                            elif(len(text)>=4):
-                                if((text[0:1].lower()=="n") and (modo==1 or modo==3)):
-                                    if (text[1:].replace(" ","").isnumeric()):
+                        #     elif(len(text)>=4):
+                        #         if((text[0:1].lower()=="n") and (modo==1 or modo==3)):
+                        #             if (text[1:].replace(" ","").isnumeric()):
                                         
-                                        data_respuesta = text[1:].replace(" ","")  
-                                        if (int(data_respuesta)<=15805):
-                                            opcion="nivel"
-                                            #print("Es Numero")
-                                        else:
-                                            #NO HACE NADA
-                                            opcion="no_permitido_mayor_15805"
-                                            pass
-                                            #print("#NO HACE NADA")
+                        #                 data_respuesta = text[1:].replace(" ","")  
+                        #                 if (int(data_respuesta)<=15805):
+                        #                     opcion="nivel"
+                        #                     #print("Es Numero")
+                        #                 else:
+                        #                     #NO HACE NADA
+                        #                     opcion="no_permitido_mayor_15805"
+                        #                     pass
+                        #                     #print("#NO HACE NADA")
                                         
-                                    else:
-                                        if((text[-2]=='🇺') and (modo==1 or modo==3)):
-                                            opcion="trad_ing"
-                                            data_respuesta = text[:-2]
-                                            #print("TRADUCCION A INGLES")
-                                        elif((text[-2]=='🇪' ) and (modo==1 or modo==3)):
-                                            opcion="trad_esp"
-                                            data_respuesta = text[:-2]
-                                            #print("TRADUCCION A ESPAÑOL")
-                                        else:
-                                            #NO HACE NADA
-                                            pass
-                                            #print("#NO HACE NADA")
+                        #             else:
+                        #                 if((text[-2]=='🇺') and (modo==1 or modo==3)):
+                        #                     opcion="trad_ing"
+                        #                     data_respuesta = text[:-2]
+                        #                     #print("TRADUCCION A INGLES")
+                        #                 elif((text[-2]=='🇪' ) and (modo==1 or modo==3)):
+                        #                     opcion="trad_esp"
+                        #                     data_respuesta = text[:-2]
+                        #                     #print("TRADUCCION A ESPAÑOL")
+                        #                 else:
+                        #                     #NO HACE NADA
+                        #                     pass
+                        #                     #print("#NO HACE NADA")
 
-                                elif((modo==2 or modo==3)):
-                                    data_respuesta = text  
-                                    opcion="usar_bot"
+                        #         elif((modo==2 or modo==3)):
+                        #             data_respuesta = text  
+                        #             opcion="usar_bot"
                                 
-                                elif((text[-2]=='🇺') and (modo==1 or modo==3)):
-                                    opcion="trad_ing"
-                                    data_respuesta = text[:-2]
-                                    #print("TRADUCCION A INGLES")
+                        #         elif((text[-2]=='🇺') and (modo==1 or modo==3)):
+                        #             opcion="trad_ing"
+                        #             data_respuesta = text[:-2]
+                        #             #print("TRADUCCION A INGLES")
                                 
-                                elif((text[-2]=='🇪') and (modo==1 or modo==3)):
-                                    opcion="trad_esp"
-                                    data_respuesta = text[:-2]    
-                                    #print("TRADUCCION A ESPAÑOL")
-                                else:
-                                    #NO HACE NADA
-                                    pass
-                                    #print("#NO HACE NADA")
+                        #         elif((text[-2]=='🇪') and (modo==1 or modo==3)):
+                        #             opcion="trad_esp"
+                        #             data_respuesta = text[:-2]    
+                        #             #print("TRADUCCION A ESPAÑOL")
+                        #         else:
+                        #             #NO HACE NADA
+                        #             pass
+                        #             #print("#NO HACE NADA")
    
 
 
@@ -670,212 +673,192 @@ class WhatsAppWrapper:
                             #time.sleep(10)
                             envia_ultima_sentencia(cursor,level,phone_number)
                             almacena_respuestas(respuesta_cliente_normal,2,id_user,cursor,connection)
+                        
                         elif(status== 2 or status== 3 ):
                             date_actual = datetime.datetime.now()              
                             date_expired = datetime.datetime.strptime(str(date_expired), '%Y-%m-%d %H:%M:%S')
                             if (date_actual<=date_expired):
                                 #USUARIO PERMITO PARA UTILIZAR EL SERVICIO DE MENSAJERIA
-                                sql = "SELECT sentence,correct_option, complete_sentence,traslate_sentence FROM sentence WHERE id=%s"
-                                cursor.execute(sql,(level))
-                                result_sentence= cursor.fetchone()
-                                correct_option = result_sentence["correct_option"].split("|")
-                                # traslate_sentence = result_sentence["traslate_sentence"]
-                                # sentence_actual = result_sentence["sentence"]
-
-                                if(opcion =='mensaje_no_valido'):
+                                if(modo==-1):
+                                    #MODO-DIOS
+                                    if(opcion =='mensaje_no_valido'):
                                     # TYPE 3
-                                    data = data_respuesta.split("-")
-                                    idmsg=data[1]
-                                    phone=data[2]
-                                    message=data[5]
-                                    
-
-                                    sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
-                                    cursor.execute(sql,(phone))
-                                    result_user= cursor.fetchone()
-                                    
-
-                                    if(cursor.rowcount==1):
-                                        id_user2 = result_user["id"]
-                                        status = result_user["status"]
-                                        level = result_user["level"]
+                                        data = data_respuesta.split("-")
+                                        idmsg=data[1]
+                                        phone=data[2]
+                                        message=data[5]
                                         
-                                        client.send_message_reply(    
-                                            idmsg=idmsg,
-                                            phone_number=phone,  
-                                            message=message
+
+                                        sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
+                                        cursor.execute(sql,(phone))
+                                        result_user= cursor.fetchone()
+                                        
+
+                                        if(cursor.rowcount==1):
+                                            id_user2 = result_user["id"]
+                                            status = result_user["status"]
+                                            level = result_user["level"]
                                             
-                                        )
-                                        #print("mensaje_no_valido" + response)
-                                     
-                                        client.send_message(        
-                                            message="✅ MENSAJE RESPONDIDO",
-                                            phone_number=phone_number
-                                        )
+                                            client.send_message_reply(    
+                                                idmsg=idmsg,
+                                                phone_number=phone,  
+                                                message=message
+                                                
+                                            )
+                                        
+                                            client.send_message(        
+                                                message="✅ MENSAJE RESPONDIDO",
+                                                phone_number=phone_number
+                                            )
 
-                                        envia_ultima_sentencia(cursor,level,phone)
-                                        almacena_respuestas(respuesta_cliente_normal,3,id_user,cursor,connection)
+                                            envia_ultima_sentencia(cursor,level,phone)
+                                            almacena_respuestas(respuesta_cliente_normal,3,id_user,cursor,connection)
 
-                                    else:
-                                        client.send_message(        
-                                            message="❌ ERROR- USUARIO NO REGISTRADO",
-                                            phone_number=phone_number
-                                        )
-                                elif((opcion =='envia_top') ) :
-                                    data_respuesta = data_respuesta.replace("+","")
-                                    data_respuesta = data_respuesta.replace(" ","")
-                                    phone_number = data_respuesta
-                                    msg = msgayuda()  
-                                    client.send_message(        
-                                        message=msg,
-                                        phone_number=phone_number,
-                                    )
-
-                                    sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
-                                    cursor.execute(sql)
-                                    result_sentence = cursor.fetchall()
-                                    msg= " Top 20 🏆\n"
-                                    for  i, dicc_sentence in enumerate(result_sentence):
-                                        name_whatsapp = dicc_sentence["name_whatsapp"]
-                                        if (int(i) == 0):
-                                                medalla ="🥇"
-                                        elif(int(i) == 1):
-                                            medalla ="🥈"
-                                        elif(int(i) == 2):
-                                            medalla ="🥉"
                                         else:
-                                            medalla ="🏅"
-                                        msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
-                                 
+                                            client.send_message(        
+                                                message="❌ ERROR- USUARIO NO REGISTRADO",
+                                                phone_number=phone_number
+                                            )
+                                
+                                    elif((opcion =='envia_top') ) :
+                                        data_respuesta = data_respuesta.replace("+","")
+                                        data_respuesta = data_respuesta.replace(" ","")
+                                        phone_number = data_respuesta
+                                        msg = msgayuda()  
+                                        client.send_message(        
+                                            message=msg,
+                                            phone_number=phone_number,
+                                        )
 
-
-                                    # sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
-                                    # cursor.execute(sql)
-                                    # result_sentence = cursor.fetchall()
-                                    # p = 0
-                                    # for  i, dicc_sentence in enumerate(result_sentence):
-                                    #     p+=1
-                                    #     if (str(id_user) == str(dicc_sentence["id"])):
-                                    #         position = p
-                                    #         break
-                                    # msg= msg + "\n\n 🏅Tu posicion es " + str(position)
-                                    client.send_message(        
-                                        message=msg,
-                                        phone_number=phone_number,
-                                    )
-
-                                elif(opcion =='modo'):
-                                    
-                                    #print("PAGAR " + data_opcion_pagar) # TYPE 4
-                                    data_respuesta = data_respuesta.replace("+","")
-                                    data_respuesta = data_respuesta.replace(" ","")
-                                    
-
-                                    sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
-                                    cursor.execute(sql,(data_respuesta))
-                                    result_user= cursor.fetchone()
-                                    
-
-                                    if(cursor.rowcount==1):
-                                        id_user2 = result_user["id"]
-                                        status = result_user["status"]
-                                        level = result_user["level"]
-                                    
-                                      
-                                        sql = "UPDATE user SET  modo='{var1}' WHERE id={var2}".format(var1=mod, var2=str(id_user2))   
+                                        sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                         cursor.execute(sql)
-                                        connection.commit()
-
+                                        result_sentence = cursor.fetchall()
+                                        msg= " Top 20 🏆\n"
+                                        for  i, dicc_sentence in enumerate(result_sentence):
+                                            name_whatsapp = dicc_sentence["name_whatsapp"]
+                                            if (int(i) == 0):
+                                                    medalla ="🥇"
+                                            elif(int(i) == 1):
+                                                medalla ="🥈"
+                                            elif(int(i) == 2):
+                                                medalla ="🥉"
+                                            else:
+                                                medalla ="🏅"
+                                            msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
+                    
                                         client.send_message(        
-                                            message="✅ CAMBIO MODO ACEPTADO",
-                                            phone_number=phone_number
+                                            message=msg,
+                                            phone_number=phone_number,
                                         )
-                                        if (mod == 1):
-                                            modito = "GRAMMAR"
-                                        elif (mod == 2):
-                                            modito = "CHATGPT"
-                                        elif( mod == 3):
-                                            modito = "GRAMMAR Y CHATGPT"
 
-                                        client.send_message(        
-                                            message="✅ El cambio de modo se ha realizado exitosamente. Ahora estás en el modo: " +modito,
-                                            phone_number=data_respuesta
-                                        )
-                                        envia_ultima_sentencia(cursor,level,data_respuesta)
-                                        almacena_respuestas(respuesta_cliente_normal,7,id_user,cursor,connection)
-
-                                    else:
-                                        client.send_message(        
-                                            message="❌ ERROR- USUARIO NO REGISTRADO",
-                                            phone_number=phone_number
-                                        )
-                                        
-                                elif(opcion =='pagar'):
+                                    elif(opcion =='modo'):
                                     
-                                    #print("PAGAR " + data_opcion_pagar) # TYPE 4
-                                    data_respuesta = data_respuesta.replace("+","")
-                                    data_respuesta = data_respuesta.replace(" ","")
-                                    
-
-                                    sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
-                                    cursor.execute(sql,(data_respuesta))
-                                    result_user= cursor.fetchone()
-                                    
-
-                                    if(cursor.rowcount==1):
-                                        id_user2 = result_user["id"]
-                                        status = result_user["status"]
-                                        level = result_user["level"]
-                                        
+                                        #print("PAGAR " + data_opcion_pagar) # TYPE 4
+                                        data_respuesta = data_respuesta.replace("+","")
+                                        data_respuesta = data_respuesta.replace(" ","")
                                         
 
-                                        date_actual = datetime.datetime.now()
-                                        day_supcrypcion = mod * 31
+                                        sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
+                                        cursor.execute(sql,(data_respuesta))
+                                        result_user= cursor.fetchone()
+                                        
 
-                                      
-                                        date_expired = date_actual + datetime.timedelta(days=day_supcrypcion)
-                                        date_expired_clien = date_actual + datetime.timedelta(days=day_supcrypcion)
+                                        if(cursor.rowcount==1):
+                                            id_user2 = result_user["id"]
+                                            status = result_user["status"]
+                                            level = result_user["level"]
+                                        
+                                        
+                                            sql = "UPDATE user SET  modo='{var1}' WHERE id={var2}".format(var1=mod, var2=str(id_user2))   
+                                            cursor.execute(sql)
+                                            connection.commit()
 
+                                            client.send_message(        
+                                                message="✅ CAMBIO MODO ACEPTADO",
+                                                phone_number=phone_number
+                                            )
+                                            if (mod == 1):
+                                                modito = "GRAMMAR"
+                                            elif (mod == 2):
+                                                modito = "CHATGPT"
+                                            elif( mod == 3):
+                                                modito = "GRAMMAR Y CHATGPT"
 
-                                        date_expired = date_expired.strftime("%Y-%m-%d %H:%M:%S")  
+                                            client.send_message(        
+                                                message="✅ El cambio de modo se ha realizado exitosamente. Ahora estás en el modo: " +modito,
+                                                phone_number=data_respuesta
+                                            )
+                                            envia_ultima_sentencia(cursor,level,data_respuesta)
+                                            almacena_respuestas(respuesta_cliente_normal,7,id_user,cursor,connection)
 
-                                        date_expired_clien_str = date_expired_clien.strftime("%d-%m-%Y ") 
-
-                                        date_paid = date_actual.strftime("%Y-%m-%d %H:%M:%S")
-                                        sql = "UPDATE user SET status=3, date_paid='{var1}' , date_expired='{var2}' WHERE id={var3}".format( var1=str(date_paid),  var2=str(date_expired), var3=str(id_user2))   
-                                        cursor.execute(sql)
-                                        connection.commit()
-
-                                        client.send_message(        
-                                            message="💳 👍 PAGO ACEPTADO",
-                                            phone_number=phone_number
-                                        )
-                                        client.send_message(        
-                                            message="💳 👍¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_clien_str,
-                                            phone_number=data_respuesta
-                                        )
-                                        envia_ultima_sentencia(cursor,level,data_respuesta)
-                                        almacena_respuestas(respuesta_cliente_normal,4,id_user,cursor,connection)
-
-                                    else:
-                                        client.send_message(        
-                                            message="❌ ERROR- USUARIO NO REGISTRADO",
-                                            phone_number=phone_number
-                                        )
-                                elif((opcion =='nada')) :
-                                    pass
-                                elif((opcion =='foto')) :
-                                    #TYPE 5
-                                    # print("Foto")
-               
-                                    envia_ultima_sentencia(cursor,level,phone_number)
-                                    # msg = "\n\n\n\n\n\n\n\n"
-                                    # client.send_message(        
-                                    #     message=msg,
-                                    #     phone_number=phone_number
-                                    # )
-
+                                        else:
+                                            client.send_message(        
+                                                message="❌ ERROR- USUARIO NO REGISTRADO",
+                                                phone_number=phone_number
+                                            )
+                                        
+                                    elif(opcion =='pagar'):
                                     
+                                        #print("PAGAR " + data_opcion_pagar) # TYPE 4
+                                        data_respuesta = data_respuesta.replace("+","")
+                                        data_respuesta = data_respuesta.replace(" ","")
+                                        
+
+                                        sql = "SELECT id,level,modo, status,date_expired,pais FROM user WHERE number_phone=%s AND active = 1"
+                                        cursor.execute(sql,(data_respuesta))
+                                        result_user= cursor.fetchone()
+                                        
+
+                                        if(cursor.rowcount==1):
+                                            id_user2 = result_user["id"]
+                                            status = result_user["status"]
+                                            level = result_user["level"]
+                                            
+                                            
+
+                                            date_actual = datetime.datetime.now()
+                                            day_supcrypcion = mod * 31
+
+                                        
+                                            date_expired = date_actual + datetime.timedelta(days=day_supcrypcion)
+                                            date_expired_clien = date_actual + datetime.timedelta(days=day_supcrypcion)
+
+
+                                            date_expired = date_expired.strftime("%Y-%m-%d %H:%M:%S")  
+
+                                            date_expired_clien_str = date_expired_clien.strftime("%d-%m-%Y ") 
+
+                                            date_paid = date_actual.strftime("%Y-%m-%d %H:%M:%S")
+                                            sql = "UPDATE user SET status=3, date_paid='{var1}' , date_expired='{var2}' WHERE id={var3}".format( var1=str(date_paid),  var2=str(date_expired), var3=str(id_user2))   
+                                            cursor.execute(sql)
+                                            connection.commit()
+
+                                            client.send_message(        
+                                                message="💳 👍 PAGO ACEPTADO",
+                                                phone_number=phone_number
+                                            )
+                                            client.send_message(        
+                                                message="💳 👍¡Pago aceptado! Ahora puedes seguir disfrutando de nuestro servicio hasta el " + date_expired_clien_str,
+                                                phone_number=data_respuesta
+                                            )
+                                            envia_ultima_sentencia(cursor,level,data_respuesta)
+                                            almacena_respuestas(respuesta_cliente_normal,4,id_user,cursor,connection)
+
+                                        else:
+                                            client.send_message(        
+                                                message="❌ ERROR- USUARIO NO REGISTRADO",
+                                                phone_number=phone_number
+                                            )
+                  
+
+                                elif(modo==1):
+                                    #MODO-RPM
+                                    sql = "SELECT sentence,correct_option, complete_sentence,traslate_sentence FROM sentence WHERE id=%s"
+                                    cursor.execute(sql,(level))
+                                    result_sentence= cursor.fetchone()
+                                    correct_option = result_sentence["correct_option"].split("|")
+
+                           
                                 elif((opcion =='nivel_no_numeric')) :
                                     #TYPE 5
                                     msg = "❌ El nivel ingresado({var1}) no es un numero".format(var1=str(data_respuesta))
@@ -885,6 +868,7 @@ class WhatsAppWrapper:
                                     )
                                     envia_ultima_sentencia(cursor,level,phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,5,id_user,cursor,connection)
+                                
                                 elif((opcion =='no_permitido_mayor_15805')) :
                                     #TYPE 5
                                     msg = "❌ El nivel ingresado ({var1}) debe ser inferior a 15805.".format(var1=str(data_respuesta))
@@ -913,8 +897,6 @@ class WhatsAppWrapper:
                                         envia_ultima_sentencia(cursor,level,phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,5,id_user,cursor,connection)
 
-   
-
                                 elif((opcion =='f' )) : 
                                     # TYPE 6            
                                     msg = msgayuda()  
@@ -926,11 +908,7 @@ class WhatsAppWrapper:
                                     envia_ultima_sentencia(cursor,level,phone_number)
          
                                 elif((opcion =='t')) :
-                                    # TYPE 8
-
-                                    
-                                        
-                                      
+                                    # TYPE 8     
 
                                     sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
                                     cursor.execute(sql)
@@ -967,6 +945,7 @@ class WhatsAppWrapper:
                                     
                                     envia_ultima_sentencia(cursor,level,phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,8,id_user,cursor,connection)
+                                
                                 elif((opcion =='usar_bot') and (modo==2 or modo==3)) :
                                     pregunta = data_respuesta
 
@@ -1032,48 +1011,6 @@ class WhatsAppWrapper:
                                         phone_number=phone_number,
                                     )
 
-                                    # if (int(level)%30==0 or int(level)==10):
-                                    #     msg = msgayuda()  
-                                    #     client.send_message(        
-                                    #         message=msg,
-                                    #         phone_number=phone_number,
-                                    #     )
-
-                                    #     sql = "SELECT name_whatsapp FROM user ORDER BY maxlevel desc limit 20"
-                                    #     cursor.execute(sql)
-                                    #     result_sentence = cursor.fetchall()
-                                    #     msg= " Top 20 🏆\n"
-                                    #     for  i, dicc_sentence in enumerate(result_sentence):
-                                    #         name_whatsapp = dicc_sentence["name_whatsapp"]
-                                    #         if (int(i) == 0):
-                                    #             medalla ="🥇"
-                                    #         elif(int(i) == 1):
-                                    #             medalla ="🥈"
-                                    #         elif(int(i) == 2):
-                                    #             medalla ="🥉"
-                                    #         else:
-                                    #             medalla ="🏅"
-                                    #         msg= msg + "\n"+ medalla + " "+  str(int(i) +1 )  + ".-" +name_whatsapp
-                                        
-                                    #     sql = "SELECT id, name_whatsapp FROM user ORDER BY maxlevel desc"
-                                    #     cursor.execute(sql)
-                                    #     result_sentence = cursor.fetchall()
-                                    #     p = 0
-                                    #     for  i, dicc_sentence in enumerate(result_sentence):
-                                    #         p+=1
-                                    #         if (str(id_user) == str(dicc_sentence["id"])):
-                                    #             position = p
-                                    #             break
-                                    #     msg= msg + "\n\n Tu posicion es " + str(position)
-
-                                    #     client.send_message(        
-                                    #         message=msg,
-                                    #         phone_number=phone_number,
-                                    #     )
-
-                                        
-                                      
-
                                     if (int(level)== int(maxlevel)):   
                                         sql = "UPDATE user SET level= level +1, maxlevel= maxlevel +1   WHERE id=%s" 
                                         cursor.execute(sql, (id_user))
@@ -1085,6 +1022,7 @@ class WhatsAppWrapper:
                                     level_entero = int(level) + 1
                                     envia_ultima_sentencia(cursor,str(level_entero),phone_number)
                                     almacena_respuestas(respuesta_cliente_normal,12,id_user,cursor,connection)
+                                
                                 elif((respuesta_cliente =="a" or  respuesta_cliente=="b" or respuesta_cliente=="c"  or respuesta_cliente=="d" or respuesta_cliente=="e") and (modo==1 or modo==3) ):
                                     #print("OPCION SENTENCE RESPUESTA INCORRECTA") TYPE 13
                                     random_number = random.randint(1,20)
