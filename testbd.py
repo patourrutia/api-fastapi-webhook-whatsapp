@@ -9,12 +9,23 @@
 import datetime ,time
 import os
 
-message = "don't"
+value = int(-998*0.1)
+# print(value)
 
-message =   message.replace("'","\\'")
-print(message)
+respuesta_cliente =  "don\\'t"
+respuesta_cliente = respuesta_cliente.replace("'","")
+respuesta_cliente = respuesta_cliente.replace("\\''","")
+respuesta_cliente = respuesta_cliente.replace("\\","")
+respuesta_cliente = respuesta_cliente.replace("\'","")
 
-date_actual = datetime.datetime.now()
+print(respuesta_cliente)
+
+# message = "don't"
+
+# message =   message.replace("'","\\'")
+# print(message)
+
+# date_actual = datetime.datetime.now()
 #$print(date_actual)
 
 

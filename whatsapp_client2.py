@@ -418,7 +418,7 @@ class WhatsAppWrapper:
         
         
         messages =   changes.get("messages")
-        print(messages)
+        print()
         if messages:
             #print("FROM CLIENTE")
             #print("FROM CLIENTE")
@@ -432,7 +432,10 @@ class WhatsAppWrapper:
             if (data['entry'][0]['changes'][0]['value']['messages'][0]['type']=="text"):
                 #print (data_json['entry'][0]['changes'][0]['value']['messages'][0]['type'])
                 respuesta_cliente =data['entry'][0]['changes'][0]['value']['messages'][0]['text']['body']
-                respuesta_cliente = respuesta_cliente.replace("'","\\'")
+                respuesta_cliente = respuesta_cliente.replace("'","")
+                respuesta_cliente = respuesta_cliente.replace("\\''","")
+                respuesta_cliente = respuesta_cliente.replace("\\","")
+                respuesta_cliente = respuesta_cliente.replace("\'","")
 
                 respuesta_cliente_normal =respuesta_cliente
                 text = respuesta_cliente
