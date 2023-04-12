@@ -418,7 +418,7 @@ class WhatsAppWrapper:
         
         
         messages =   changes.get("messages")
-
+        print(messages)
         if messages:
             #print("FROM CLIENTE")
             #print("FROM CLIENTE")
